@@ -1,0 +1,17 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Add.AddPosition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Add"
+        mc:Ignorable="d"
+        Height="250" Width="300">
+    <Grid x:Name="grid">
+        <Label Content="Название" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="Оклад" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="130,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SalaryTextBox" HorizontalAlignment="Left" Margin="130,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="AddPositionButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="AddPositionButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+    </Grid>
+</Window>

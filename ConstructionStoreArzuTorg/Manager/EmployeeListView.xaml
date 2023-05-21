@@ -1,0 +1,26 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Manager.EmployeeListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Manager"
+        mc:Ignorable="d"
+        Height="450" Width="850">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" x:Name="grid" FontFamily="Times New Roman" Margin="180,0,0,0" SelectionChanged="grid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Фамилия}" Header="Фамилия" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Имя}" Header="Имя" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Отчество}" Header="Отчество" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding НазваниеДолжности}" Header="Должность" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Стаж}" Header="Стаж" Width="80" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Пол}" Header="Пол" Width="60" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Телефон}" Header="Телефон" Width="100" FontFamily="Times New Roman"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="AddEmpButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="AddEmpButton_Click"/>
+        <Button x:Name="EditEmpButton" Content="Изменить" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="EditEmpButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <TextBox x:Name="SortTextBox" HorizontalAlignment="Left" Margin="30,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="SortTextBox_TextChanged"/>
+    </Grid>
+</Window>

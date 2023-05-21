@@ -1,0 +1,18 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Add.AddDiscounts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Add"
+        mc:Ignorable="d"
+        Height="250" Width="250">
+    <Grid x:Name="grid">
+        <TextBox x:Name="SeasonTextBox" HorizontalAlignment="Left" Margin="100,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DiscountsTextBox" HorizontalAlignment="Left" Margin="100,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="AddDiscountsButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,190,0,0" VerticalAlignment="Top" Click="AddDiscountsButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,190,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Label Content="Сезон" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Скидка" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

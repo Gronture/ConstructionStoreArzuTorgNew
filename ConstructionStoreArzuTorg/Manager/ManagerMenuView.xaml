@@ -1,0 +1,15 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Manager.ManagerMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Manager"
+        mc:Ignorable="d"
+        Height="350" Width="220">
+    <Grid>
+        <Button x:Name="EmployeeListButton" Content="Сотрудники" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="EmployeeListButton_Click"/>
+        <Button x:Name="DiscountsButton" Content="Сезонность" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="DiscountsButton_Click"/>
+        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="ReportButton_Click"/>
+        <Button x:Name="WarehouseButton" Content="Склад" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Click="WarehouseButton_Click"/>
+    </Grid>
+</Window>

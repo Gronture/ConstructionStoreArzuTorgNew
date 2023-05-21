@@ -1,0 +1,17 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Employee.RezervWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
+        mc:Ignorable="d"
+        Height="250" Width="400">
+    <Grid>
+        <Label Content="Клиент" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="clientComboBox"  Margin="140,30,150,0" VerticalAlignment="Top"/>
+        <DatePicker Name="calendar" Margin="140,80,150,0" VerticalAlignment="Top"/>
+        <Button x:Name="AddRezerv" Content="Добавить" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" Click="AddRezerv_Click"/>
+        <Button x:Name="Back" Content="Отмена" HorizontalAlignment="Left" Margin="170,150,0,0" VerticalAlignment="Top" Click="Back_Click"/>
+    </Grid>
+</Window>

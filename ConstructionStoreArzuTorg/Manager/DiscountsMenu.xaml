@@ -1,0 +1,20 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Manager.DiscountsMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Manager"
+        mc:Ignorable="d"
+        Height="320" Width="400">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" x:Name="grid" Margin="120,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Название_сезона}" Header="Название сезона" Width="140"/>
+                <DataGridTextColumn Binding="{Binding Процент}" Header="Скидка"  Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="AddDiscountsButton" Content="Добавить" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="AddDiscountsButton_Click"/>
+        <Button x:Name="DeleteDiscountsButton" Content="Удалить" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Click="DeleteDiscountsButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+    </Grid>
+</Window>

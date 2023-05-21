@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="100d286a4dee462e9e86d4437e907dc1" Name="Diagram1">
+        <EntityTypeShape EntityType="ConstructionstoreModel.ВозвратТовара" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Должность" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Единицы_измерения" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Заказ" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.ЗаказанныеТовары" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Категория" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Клиент" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Пользователь" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Поставки" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.ПоставленныеТовары" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Поставщик" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.РазмерыТовара" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Резервация" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.РезервацияТоваров" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Сезонность" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Склад" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Сотрудник" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Статус" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.Товар" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.СотрудникПользователь" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ВозвратТовара_Заказ" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ВозвратТовара_ЗаказанныеТовары" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Сотрудник_Должность" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_Единицы_измерения" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Заказ_Клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Заказ_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ЗаказанныеТовары_Заказ" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ЗаказанныеТовары_Статус" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ЗаказанныеТовары_Товар" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_Категория" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Резервация_Клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_СотрудникПользователь_Пользователь" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Поставки_Поставщик" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Поставки_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ПоставленныеТовары_Поставки" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_ПоставленныеТовары_Товар" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_РазмерыТовара" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Резервация_Статус" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_РезервацияТоваров_Резервация" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_РезервацияТоваров_Товар" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_Скидки" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Склад_Товар" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_СотрудникПользователь_Сотрудник" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

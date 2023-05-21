@@ -1,0 +1,37 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Employee.OrderListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
+        mc:Ignorable="d"
+        Height="450" Width="1370" Loaded="Window_Loaded">
+    <Grid>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Click="ReportButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="40,190,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="700,0,25,0" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Сделать возврат"  Click="ReturnButton"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Название}" Header="Название"  Width="120"/>
+                <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория"  Width="200"/>
+                <DataGridTextColumn Binding="{Binding ЕдиницаИзмерения}" Header="Единица измерения" Width="125"/>
+                <DataGridTextColumn Binding="{Binding Размеры}" Header="Размеры" Width="90"/>
+                <DataGridTextColumn Binding="{Binding Count}" Header="Количество"  Width="110"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="orderGrid" Margin="150,0,730,0" RenderTransformOrigin="0.5,0.5" SelectionChanged="orderGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ФамилияКлиента}" Header="Клиент"  Width="100"/>
+                <DataGridTextColumn Binding="{Binding ФамилияСотрудника}" Header="Ответственный"  Width="150"/>
+                <DataGridTextColumn Binding="{Binding Дата_заказа}" Header="Дата"  Width="125"/>
+                <DataGridTextColumn Binding="{Binding Сумма}" Header="Сумма"  Width="125"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

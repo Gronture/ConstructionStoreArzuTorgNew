@@ -1,0 +1,28 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Add.AddClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Add"
+        mc:Ignorable="d"
+        Height="450" Width="400">
+    <Grid x:Name="grid">
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="30,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пол" HorizontalAlignment="Left" Margin="30,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Возраст" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="Телефон" HorizontalAlignment="Left" Margin="30,235,0,0" VerticalAlignment="Top"/>
+        <Label Content="Адрес" HorizontalAlignment="Left" Margin="30,275,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Margin="150,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SecondNameTextBox" HorizontalAlignment="Left" Margin="150,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Margin="150,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PolTextBox" HorizontalAlignment="Left" Margin="150,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="AgeTextBox" HorizontalAlignment="Left" Margin="150,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Margin="150,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="150,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="35,320,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+
+    </Grid>
+</Window>

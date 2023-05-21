@@ -1,0 +1,30 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Employee.ProductListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
+        mc:Ignorable="d"
+        Height="450" Width="1300">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" x:Name="grid" FontFamily="Times New Roman" Margin="180,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Название}" Header="Название" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория" Width="120" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Производитель}" Header="Производитель" Width="120" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Страна_происхождения}" Header="Страна" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Размеры}" Header="Размер" Width="80" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding ЕдиницаИзмерения}" Header="Ед.изм." Width="80" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Стоимость}" Header="Стоимость" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Сезонность}" Header="Сезонность" Width="100" FontFamily="Times New Roman"/>
+                <DataGridTextColumn Binding="{Binding Стоимость_со_скидкой}" Header="Стоимость со скидкой" Width="170" FontFamily="Times New Roman"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="SortTextBox" HorizontalAlignment="Left" Margin="20,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SortTextBox_TextChanged"/>
+        <Button x:Name="AddProductButton" Content="Добавить" HorizontalAlignment="Left" Margin="20,240,0,0" VerticalAlignment="Top" Click="AddProductButton_Click"/>
+        <Button x:Name="EditProductButton" Content="Изменить" HorizontalAlignment="Left" Margin="20,290,0,0" VerticalAlignment="Top" Click="EditProductButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="90,340,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+
+    </Grid>
+</Window>
