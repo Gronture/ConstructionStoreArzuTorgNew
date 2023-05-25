@@ -89,6 +89,7 @@ namespace ConstructionStoreArzuTorg.Employee
                         НазваниеКатегории = category.Название,
                         Производитель = product.cl.Производитель,
                         Страна_происхождения = product.cl.Страна_происхождения
+
                     }).ToList();
 
 
@@ -123,11 +124,12 @@ namespace ConstructionStoreArzuTorg.Employee
                     (product, units) => new ProductUpd
                     {
                         Стоимость = product.cl.Стоимость,
-                        Сезонность = db.Сезонность.Where(x => x .ID == units.ID).FirstOrDefault().Название_сезона,
+                        Сезонность = db.Сезонность.Where(x => x.ID == units.ID).FirstOrDefault().Название_сезона,
                         СерийныйНомер = product.cl.Серийный_номер,
                         Гарантия = product.cl.Гарантия,
                         Стоимость_со_скидкой = product.cl.Стоимость_со_скидкой,
                     }).ToList();
+
 
 
                 for (int i = 0; i < firstJoin.Count; i++)
@@ -140,6 +142,8 @@ namespace ConstructionStoreArzuTorg.Employee
                     firstJoin[i].Гарантия = lastJoin[i].Гарантия;
                     firstJoin[i].Стоимость_со_скидкой = lastJoin[i].Стоимость_со_скидкой;
                 }
+
+
                 return firstJoin;
             }
         }
@@ -321,7 +325,7 @@ namespace ConstructionStoreArzuTorg.Employee
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
-                      НазваниеКатегории = x.Tovar.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Сезонность = x.Param.Название_сезона,

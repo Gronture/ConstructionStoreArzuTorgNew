@@ -65,7 +65,7 @@ namespace ConstructionStoreArzuTorg.Add
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
-                      НазваниеКатегории = x.Param.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Post = x.Post.Поставка,

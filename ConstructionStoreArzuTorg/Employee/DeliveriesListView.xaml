@@ -5,28 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
         mc:Ignorable="d"
-        Title="" Height="450" Width="1800" Loaded="Window_Loaded">
+        Title="" Height="450" Width="1250" Loaded="Window_Loaded">
     <Grid>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
-        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Click="ReportButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="40,190,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="1000,0,25,0" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Click="ReportButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="640,0,0,0" RenderTransformOrigin="0.5,0.5">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Название}" Header="Название"  Width="150"/>
-                <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория"  Width="200"/>
+                <DataGridTextColumn Binding="{Binding Название}" Header="Название"  Width="110"/>
+                <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория"  Width="140"/>
                 <DataGridTextColumn Binding="{Binding ЕдиницаИзмерения}" Header="Единица измерения" Width="160"/>
                 <DataGridTextColumn Binding="{Binding Размеры}" Header="Размеры" Width="90"/>
-                <DataGridTextColumn Binding="{Binding Count}" Header="Количество"  Width="130"/>
+                <DataGridTextColumn Binding="{Binding Count}" Header="Количество"  Width="110"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="postavkiGrid" Margin="150,0,0,0" RenderTransformOrigin="0.5,0.5" SelectionChanged="postavkiGrid_SelectionChanged" HorizontalAlignment="Left" Width="800">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="postavkiGrid" Margin="120,0,0,0" RenderTransformOrigin="0.5,0.5" SelectionChanged="postavkiGrid_SelectionChanged" HorizontalAlignment="Left" Width="500">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding НаименованиеПоставщика}" Header="Поставщик"  Width="120"/>
                 <DataGridTextColumn Binding="{Binding ФамилияСотрудника}" Header="Принимающий"  Width="150"/>
                 <DataGridTextColumn Binding="{Binding Дата}" Header="Дата"  Width="125"/>
-                <DataGridTextColumn Binding="{Binding Адрес}" Header="Адрес"  Width="125"/>
-                <DataGridTextColumn Binding="{Binding Сумма}" Header="Сумма"  Width="125"/>
+                <DataGridTextColumn Binding="{Binding Сумма}" Header="Сумма"  Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

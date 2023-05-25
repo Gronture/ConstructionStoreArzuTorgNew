@@ -38,13 +38,15 @@ namespace ConstructionStoreArzuTorg.Employee
                       ci => ci.ID_Клиента,
                       (cl, ci) => new { cl, ci }).SelectMany(
                       x => x.ci.DefaultIfEmpty(),
-                      (one, two) => new DeliveriesUpd()
+                      (one, two) => new RezervUpd()
                       {
-                          Сумма = Math.Round(one.cl.Цена, 2),
+                          Цена = Math.Round(one.cl.Цена, 2),
                           Дата = one.cl.Дата,
                           ID = one.cl.ID,
-                          НаименованиеПоставщика = two.Фамилия,
-                          DateString = one.cl.Дата.ToShortDateString()
+                          ФамилияКлиента = two.Имя + " " + two.Фамилия,
+                          DateString = one.cl.Дата.ToShortDateString(),
+                          НазваниеСтатуса = db.Статус.FirstOrDefault(x => x.ID == one.cl.Статус).Название
+                          
                       }).ToList();
             }
         }
@@ -60,12 +62,6 @@ namespace ConstructionStoreArzuTorg.Employee
             Close();
         }
 
-        private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedItem = tovarsGrid.SelectedItem as Резервация;
-            var needList = GetProductUpds().Where(x => x.Post == selectedItem.ID).ToList();
-            tovarsGrid.ItemsSource = needList;
-        }
         public List<ProductUpd> GetProduct()
         {
 
@@ -159,25 +155,25 @@ namespace ConstructionStoreArzuTorg.Employee
                       joinResult => joinResult.Tovar.Сезонность,
                       param => param.ID,
                       (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
-                   .Join(db.ПоставленныеТовары,
+                   .Join(db.РезервацияТоваров,
                       joinResult => joinResult.Tovar.ID_Товара,
-                      post => post.Товар,
-                      (joinResult, post) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Post = post, PT = joinResult.PT })
+                      rezerv => rezerv.Товар,
+                      (joinResult, rezerv) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Rezerv = rezerv, PT = joinResult.PT })
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
-                      НазваниеКатегории = x.Tovar.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Сезонность = x.Param.Название_сезона,
-                      Post = x.Post.Поставка,
-                      Count = x.Post.Количество
+                      Rezerv = x.Rezerv.Резервация.ID,
+                      Count = x.Rezerv.Количество
                   }).ToList();
             }
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = grid.SelectedItem as DeliveriesUpd;
+            var selectedItem = grid.SelectedItem as RezervUpd;
 
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
@@ -185,6 +181,14 @@ namespace ConstructionStoreArzuTorg.Employee
                 new EditStatusInRezervWindow(needItem).Show();
                 Close();
             }
+        }
+
+       
+        private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = grid.SelectedItem as RezervUpd;
+            var needList = GetProductUpds().Where(x => x.Rezerv == selectedItem.ID).ToList();
+            tovarsGrid.ItemsSource = needList;
         }
     }
 }

@@ -15,18 +15,20 @@
                 <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория"  Width="170"/>
                 <DataGridTextColumn Binding="{Binding ЕдиницаИзмерения}" Header="Единица измерения" Width="170"/>
                 <DataGridTextColumn Binding="{Binding Count}" Header="Количество"  Width="120"/>
+              
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="grid" Margin="290,0,0,0" HorizontalAlignment="Left" Width="430" SelectionChanged="grid_SelectionChanged">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="grid" Margin="219,0,0,0" HorizontalAlignment="Left" Width="516" SelectionChanged="grid_SelectionChanged" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Изменить статус" Click="MenuItem_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Receiving}" Header="Клиент"  Width="150"/>
-                <DataGridTextColumn Binding="{Binding Сумма}" Header="Цена"  Width="150"/>
+                <DataGridTextColumn Binding="{Binding ФамилияКлиента}" Header="Клиент"  Width="150"/>
+                <DataGridTextColumn Binding="{Binding Цена}" Header="Цена"  Width="150"/>
                 <DataGridTextColumn Binding="{Binding DateString}" Header="Дата"  Width="125"/>
+                <DataGridTextColumn Binding="{Binding НазваниеСтатуса}" Header="Статус"  Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

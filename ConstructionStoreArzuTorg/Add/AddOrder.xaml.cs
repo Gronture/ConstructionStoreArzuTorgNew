@@ -77,6 +77,7 @@ namespace ConstructionStoreArzuTorg.Add
                     zakaz.ID_Клиента = db.Клиент.Where(x => x.Фамилия == ClientComboBox.Text).FirstOrDefault().ID_Клиента;
                     zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
                     zakaz.Дата_заказа = (DateTime)datepicker.SelectedDate;
+                   
 
                     db.Заказ.Add(zakaz);
                     db.SaveChanges();

@@ -186,6 +186,8 @@
     <Compile Include="ClassConnection\OrderedProductsUpd.cs" />
     <Compile Include="ClassConnection\OrderUpd.cs" />
     <Compile Include="ClassConnection\ProductUpd.cs" />
+    <Compile Include="ClassConnection\RezervProductUpd.cs" />
+    <Compile Include="ClassConnection\RezervUpd.cs" />
     <Compile Include="ClassConnection\WarehouseUpd.cs" />
     <Compile Include="ClassConnection\WordHelper.cs" />
     <Compile Include="Edit\EditClientView.xaml.cs">

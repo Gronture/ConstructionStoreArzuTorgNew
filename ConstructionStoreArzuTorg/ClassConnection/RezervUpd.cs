@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConstructionStoreArzuTorg.ClassConnection
 {
-    public class DeliveriesUpd
+    internal class RezervUpd
     {
         public int ID { get; set; }
         public System.DateTime Дата { get; set; }
-        public string ФамилияСотрудника { get; set; }
-        public string НаименованиеПоставщика { get; set; }
-        public decimal Сумма { get; set; }
+        public string ФамилияКлиента { get; set; }
+        public decimal Цена { get; set; }
+        public string НазваниеСтатуса { get; set; }
         public string DateString { get; set; }
-        public string Status { get; set; }
     }
 }

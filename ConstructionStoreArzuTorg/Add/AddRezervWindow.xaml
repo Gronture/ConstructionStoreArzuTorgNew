@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Add"
         mc:Ignorable="d"
-        Height="450" Width="1040">
-    <Grid>
+        Height="450" Width="1040" Loaded="Window_Loaded">
+    <Grid x:Name="grid">
         <Label Content="Товар" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Размеры" HorizontalAlignment="Left" Margin="30,130,0,0" VerticalAlignment="Top"/>
         <Label Content="Единица измерения" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top"/>
         <Label Content="Каличество" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ProductComboBox" HorizontalAlignment="Left" Margin="180,35,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ProductComboBox_SelectionChanged_1"/>
-        <ComboBox x:Name="CategorComboBox" HorizontalAlignment="Left" Margin="180,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CategorComboBox_SelectionChanged"/>
-        <ComboBox x:Name="RazmerComboBox" HorizontalAlignment="Left" Margin="180,135,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="RazmerComboBox_SelectionChanged"/>
-        <ComboBox x:Name="EdIzmComboBox" HorizontalAlignment="Left" Margin="180,185,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EdIzmComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ProductComboBox" HorizontalAlignment="Left" Margin="180,35,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CategorComboBox" HorizontalAlignment="Left" Margin="180,85,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="RazmerComboBox" HorizontalAlignment="Left" Margin="180,135,0,0" VerticalAlignment="Top" Width="120" />
+        <ComboBox x:Name="EdIzmComboBox" HorizontalAlignment="Left" Margin="180,185,0,0" VerticalAlignment="Top" Width="120" />
         <TextBox x:Name="ColvoTextBox" HorizontalAlignment="Left" Margin="180,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="375,4,10,-1" RenderTransformOrigin="0.5,0.5"  >
             <DataGrid.Columns>

@@ -9,6 +9,7 @@ namespace ConstructionStoreArzuTorg.ClassConnection
     public class ProductUpd
     {
         public int Post { get; set; }
+        public int Rezerv { get; set; }
         public int Ord { get; set; }
         public int ID_Товара { get; set; }
         public string Название { get; set; }

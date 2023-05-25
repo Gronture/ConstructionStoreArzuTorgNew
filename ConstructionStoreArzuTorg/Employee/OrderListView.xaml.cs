@@ -358,21 +358,33 @@ namespace ConstructionStoreArzuTorg.Employee
                       joinResult => joinResult.Tovar.ID_Товара,
                       ord => ord.Товар,
                       (joinResult, ord) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, PT = joinResult.PT })
-                  //.Join(db.Статус,
-                  //    joinResult => joinResult.Ord.Статус,
-                  //    status => status.ID,
-                  //    (joinResult, status) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, Post = joinResult.PT, Status = status })
+                  .Join(db.Статус,
+                        joinResult => joinResult.Ord.Статус,
+                        status => status.ID,
+                        (joinResult, status) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = joinResult.Ord, Post = joinResult.PT, Status = status })
+
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
-                      НазваниеКатегории = x.Tovar.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Сезонность = x.Param.Название_сезона,
                       Ord = x.Ord.Заказ,
                       Count = x.Ord.Количество
                   }).ToList();
+
             }
+        }
+
+        private void tovarsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
