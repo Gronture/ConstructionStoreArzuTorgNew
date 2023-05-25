@@ -210,8 +210,19 @@ namespace ConstructionStoreArzuTorg.Add
             new RezervListWindow().Show();
             Close();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+                var tovars = db.Товар.ToList();
+                var names = new List<string>();
 
-        private void ProductComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+                foreach (var item in tovars) { names.Add(item.Название); }
+                ProductComboBox.ItemsSource = names.Distinct();
+            }
+        }
+
+        private void ProductComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ProductComboBox.SelectedItem == null)
                 return;
@@ -246,9 +257,8 @@ namespace ConstructionStoreArzuTorg.Add
                 CategorComboBox.ItemsSource = categories.Distinct();
                 EdIzmComboBox.ItemsSource = unitOfWork.Distinct();
                 RazmerComboBox.ItemsSource = size.Distinct();
-
             }
-        }
+            }
 
         private void CategorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -305,23 +315,6 @@ namespace ConstructionStoreArzuTorg.Add
                 EdIzmComboBox.ItemsSource = newUnitOfWorks.Distinct();
 
 
-            }
-        }
-
-        private void EdIzmComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
-            {
-                var tovars = db.Товар.ToList();
-                var names = new List<string>();
-
-                foreach (var item in tovars) { names.Add(item.Название); }
-                ProductComboBox.ItemsSource = names.Distinct();
             }
         }
     }

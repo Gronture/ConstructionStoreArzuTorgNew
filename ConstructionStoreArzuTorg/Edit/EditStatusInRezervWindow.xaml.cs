@@ -60,7 +60,7 @@ namespace ConstructionStoreArzuTorg.Edit
                     for (int i = 0; i < listRezProducts.Count; i++)
                     {
                         var newProduct = new ЗаказанныеТовары();
-                        newProduct.Статус = db.Статус.FirstOrDefault(x => x.Название == "Отгружен").ID;
+                        newProduct.Статус = db.Статус.FirstOrDefault(x => x.Название == "Продан").ID;
                         newProduct.Заказ = newOtrg.ID_Заказа;
                         newProduct.Количество = listRezProducts[i].Количество;
                         newProduct.Товар = listRezProducts[i].Товар;
