@@ -14,6 +14,6 @@
                 <DataGridTextColumn Binding="{Binding Количество}" Header="Количество" Width="100" FontFamily="Times New Roman"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

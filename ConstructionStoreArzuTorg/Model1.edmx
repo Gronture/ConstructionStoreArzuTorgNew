@@ -47,8 +47,7 @@
           <Property Name="Товар" Type="int" Nullable="false" />
           <Property Name="Количество" Type="int" Nullable="false" />
           <Property Name="Заказ" Type="int" Nullable="false" />
-          <Property Name="Статус" Type="int" Nullable="false" />
-          <Property Name="Сумма" Type="money" Nullable="false" />
+          <Property Name="Сумма" Type="money" />
         </EntityType>
         <EntityType Name="Категория">
           <Key>
@@ -167,15 +166,11 @@
           <Property Name="Телефон" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="ID_Должности" Type="int" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Constructionstore.dbo.СотрудникПользователь" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="СотрудникПользователь">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="Сотрудник" />
-            <PropertyRef Name="Пользователь" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Сотрудник" Type="int" Nullable="false" />
           <Property Name="Пользователь" Type="int" Nullable="false" />
         </EntityType>
@@ -266,18 +261,6 @@
             </Principal>
             <Dependent Role="ЗаказанныеТовары">
               <PropertyRef Name="Заказ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ЗаказанныеТовары_Статус">
-          <End Role="Статус" Type="Self.Статус" Multiplicity="1" />
-          <End Role="ЗаказанныеТовары" Type="Self.ЗаказанныеТовары" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Статус">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ЗаказанныеТовары">
-              <PropertyRef Name="Статус" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -519,15 +502,9 @@
           <EntitySet Name="Сезонность" EntityType="Self.Сезонность" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Склад" EntityType="Self.Склад" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Статус" EntityType="Self.Статус" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Товар" EntityType="Self.Товар" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [СотрудникПользователь].[ID] AS [ID], 
-    [СотрудникПользователь].[Сотрудник] AS [Сотрудник], 
-    [СотрудникПользователь].[Пользователь] AS [Пользователь]
-    FROM [dbo].[СотрудникПользователь] AS [СотрудникПользователь]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_ВозвратТовара_Заказ" Association="Self.FK_ВозвратТовара_Заказ">
             <End Role="Заказ" EntitySet="Заказ" />
             <End Role="ВозвратТовара" EntitySet="ВозвратТовара" />
@@ -546,10 +523,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_ЗаказанныеТовары_Заказ" Association="Self.FK_ЗаказанныеТовары_Заказ">
             <End Role="Заказ" EntitySet="Заказ" />
-            <End Role="ЗаказанныеТовары" EntitySet="ЗаказанныеТовары" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ЗаказанныеТовары_Статус" Association="Self.FK_ЗаказанныеТовары_Статус">
-            <End Role="Статус" EntitySet="Статус" />
             <End Role="ЗаказанныеТовары" EntitySet="ЗаказанныеТовары" />
           </AssociationSet>
           <AssociationSet Name="FK_ЗаказанныеТовары_Товар" Association="Self.FK_ЗаказанныеТовары_Товар">
@@ -676,11 +649,9 @@
           <Property Name="Товар" Type="Int32" Nullable="false" />
           <Property Name="Количество" Type="Int32" Nullable="false" />
           <Property Name="Заказ" Type="Int32" Nullable="false" />
-          <Property Name="Статус" Type="Int32" Nullable="false" />
-          <Property Name="Сумма" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Сумма" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="ВозвратТовара" Relationship="Self.FK_ВозвратТовара_ЗаказанныеТовары" FromRole="ЗаказанныеТовары" ToRole="ВозвратТовара" />
           <NavigationProperty Name="Заказ1" Relationship="Self.FK_ЗаказанныеТовары_Заказ" FromRole="ЗаказанныеТовары" ToRole="Заказ" />
-          <NavigationProperty Name="Статус1" Relationship="Self.FK_ЗаказанныеТовары_Статус" FromRole="ЗаказанныеТовары" ToRole="Статус" />
           <NavigationProperty Name="Товар1" Relationship="Self.FK_ЗаказанныеТовары_Товар" FromRole="ЗаказанныеТовары" ToRole="Товар" />
         </EntityType>
         <EntityType Name="Категория">
@@ -822,13 +793,22 @@
           <NavigationProperty Name="Поставки" Relationship="Self.FK_Поставки_Сотрудник" FromRole="Сотрудник" ToRole="Поставки" />
           <NavigationProperty Name="СотрудникПользователь" Relationship="Self.FK_СотрудникПользователь_Сотрудник" FromRole="Сотрудник" ToRole="СотрудникПользователь" />
         </EntityType>
+        <EntityType Name="СотрудникПользователь">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Сотрудник" Type="Int32" Nullable="false" />
+          <Property Name="Пользователь" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Пользователь1" Relationship="Self.FK_СотрудникПользователь_Пользователь" FromRole="СотрудникПользователь" ToRole="Пользователь" />
+          <NavigationProperty Name="Сотрудник1" Relationship="Self.FK_СотрудникПользователь_Сотрудник" FromRole="СотрудникПользователь" ToRole="Сотрудник" />
+        </EntityType>
         <EntityType Name="Статус">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ЗаказанныеТовары" Relationship="Self.FK_ЗаказанныеТовары_Статус" FromRole="Статус" ToRole="ЗаказанныеТовары" />
           <NavigationProperty Name="Резервация" Relationship="Self.FK_Резервация_Статус" FromRole="Статус" ToRole="Резервация" />
         </EntityType>
         <EntityType Name="Товар">
@@ -855,18 +835,6 @@
           <NavigationProperty Name="РезервацияТоваров" Relationship="Self.FK_РезервацияТоваров_Товар" FromRole="Товар" ToRole="РезервацияТоваров" />
           <NavigationProperty Name="Сезонность1" Relationship="Self.FK_Товар_Скидки" FromRole="Товар" ToRole="Сезонность" />
           <NavigationProperty Name="Склад" Relationship="Self.FK_Склад_Товар" FromRole="Товар" ToRole="Склад" />
-        </EntityType>
-        <EntityType Name="СотрудникПользователь">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="Сотрудник" />
-            <PropertyRef Name="Пользователь" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Сотрудник" Type="Int32" Nullable="false" />
-          <Property Name="Пользователь" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Пользователь1" Relationship="Self.FK_СотрудникПользователь_Пользователь" FromRole="СотрудникПользователь" ToRole="Пользователь" />
-          <NavigationProperty Name="Сотрудник1" Relationship="Self.FK_СотрудникПользователь_Сотрудник" FromRole="СотрудникПользователь" ToRole="Сотрудник" />
         </EntityType>
         <Association Name="FK_ВозвратТовара_Заказ">
           <End Role="Заказ" Type="Self.Заказ" Multiplicity="1" />
@@ -959,18 +927,6 @@
             </Principal>
             <Dependent Role="ЗаказанныеТовары">
               <PropertyRef Name="Заказ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ЗаказанныеТовары_Статус">
-          <End Role="Статус" Type="Self.Статус" Multiplicity="1" />
-          <End Role="ЗаказанныеТовары" Type="Self.ЗаказанныеТовары" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Статус">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ЗаказанныеТовары">
-              <PropertyRef Name="Статус" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1184,9 +1140,9 @@
           <EntitySet Name="Сезонность" EntityType="Self.Сезонность" />
           <EntitySet Name="Склад" EntityType="Self.Склад" />
           <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" />
+          <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" />
           <EntitySet Name="Статус" EntityType="Self.Статус" />
           <EntitySet Name="Товар" EntityType="Self.Товар" />
-          <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" />
           <AssociationSet Name="FK_ВозвратТовара_Заказ" Association="Self.FK_ВозвратТовара_Заказ">
             <End Role="Заказ" EntitySet="Заказ" />
             <End Role="ВозвратТовара" EntitySet="ВозвратТовара" />
@@ -1213,10 +1169,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_ЗаказанныеТовары_Заказ" Association="Self.FK_ЗаказанныеТовары_Заказ">
             <End Role="Заказ" EntitySet="Заказ" />
-            <End Role="ЗаказанныеТовары" EntitySet="ЗаказанныеТовары" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ЗаказанныеТовары_Статус" Association="Self.FK_ЗаказанныеТовары_Статус">
-            <End Role="Статус" EntitySet="Статус" />
             <End Role="ЗаказанныеТовары" EntitySet="ЗаказанныеТовары" />
           </AssociationSet>
           <AssociationSet Name="FK_ЗаказанныеТовары_Товар" Association="Self.FK_ЗаказанныеТовары_Товар">
@@ -1331,7 +1283,6 @@
                 <ScalarProperty Name="Товар" ColumnName="Товар" />
                 <ScalarProperty Name="Количество" ColumnName="Количество" />
                 <ScalarProperty Name="Заказ" ColumnName="Заказ" />
-                <ScalarProperty Name="Статус" ColumnName="Статус" />
                 <ScalarProperty Name="Сумма" ColumnName="Сумма" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1465,6 +1416,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="СотрудникПользователь">
+            <EntityTypeMapping TypeName="ConstructionstoreModel.СотрудникПользователь">
+              <MappingFragment StoreEntitySet="СотрудникПользователь">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
+                <ScalarProperty Name="Пользователь" ColumnName="Пользователь" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Статус">
             <EntityTypeMapping TypeName="ConstructionstoreModel.Статус">
               <MappingFragment StoreEntitySet="Статус">
@@ -1488,15 +1448,6 @@
                 <ScalarProperty Name="Стоимость_со_скидкой" ColumnName="Стоимость_со_скидкой" />
                 <ScalarProperty Name="Серийный_номер" ColumnName="Серийный_номер" />
                 <ScalarProperty Name="Гарантия" ColumnName="Гарантия" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="СотрудникПользователь">
-            <EntityTypeMapping TypeName="ConstructionstoreModel.СотрудникПользователь">
-              <MappingFragment StoreEntitySet="СотрудникПользователь">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
-                <ScalarProperty Name="Пользователь" ColumnName="Пользователь" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

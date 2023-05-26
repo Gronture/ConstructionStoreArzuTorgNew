@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Height="350" Width="220">
     <Grid>
-        <Button x:Name="EmployeeListButton" Content="Сотрудники" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="EmployeeListButton_Click"/>
-        <Button x:Name="DiscountsButton" Content="Сезонность" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="DiscountsButton_Click"/>
-        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="ReportButton_Click"/>
-        <Button x:Name="WarehouseButton" Content="Склад" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Click="WarehouseButton_Click"/>
+        <Button x:Name="EmployeeListButton" Content="Сотрудники" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="EmployeeListButton_Click" Width="110" Height="32"/>
+        <Button x:Name="DiscountsButton" Content="Сезонность" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="DiscountsButton_Click" Width="110" Height="32"/>
+        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="ReportButton_Click" Width="110" Height="32"/>
+        <Button x:Name="WarehouseButton" Content="Склад" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Click="WarehouseButton_Click" Width="110" Height="32"/>
     </Grid>
 </Window>

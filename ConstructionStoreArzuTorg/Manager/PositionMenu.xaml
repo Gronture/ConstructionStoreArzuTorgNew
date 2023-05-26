@@ -13,8 +13,8 @@
                 <DataGridTextColumn Binding="{Binding Оклад}" Header="Оклад" Width="120" FontFamily="Times New Roman"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddPositionButton" Content="Добавить" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Click="AddPositionButton_Click"/>
-        <Button x:Name="DeletePositionButton" Content="Удалить" HorizontalAlignment="Left" Margin="20,70,0,0" VerticalAlignment="Top" Click="DeletePositionButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddPositionButton" Content="Добавить" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Click="AddPositionButton_Click" Width="96" Height="32"/>
+        <Button x:Name="DeletePositionButton" Content="Удалить" HorizontalAlignment="Left" Margin="20,70,0,0" VerticalAlignment="Top" Click="DeletePositionButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

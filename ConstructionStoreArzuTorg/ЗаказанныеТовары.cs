@@ -24,13 +24,11 @@ namespace ConstructionStoreArzuTorg
         public int Товар { get; set; }
         public int Количество { get; set; }
         public int Заказ { get; set; }
-        public int Статус { get; set; }
-        public decimal Сумма { get; set; }
+        public Nullable<decimal> Сумма { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ВозвратТовара> ВозвратТовара { get; set; }
         public virtual Заказ Заказ1 { get; set; }
-        public virtual Статус Статус1 { get; set; }
         public virtual Товар Товар1 { get; set; }
     }
 }

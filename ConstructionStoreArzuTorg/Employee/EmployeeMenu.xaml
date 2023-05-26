@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Height="350" Width="200">
     <Grid>
-        <Button x:Name="HelpButton" Content="Help" HorizontalAlignment="Left" Margin="35, 10,0,0" VerticalAlignment="Top" Click="HelpButton_Click"/>
-        <Button x:Name="ClientButton" Content="Клиенты" HorizontalAlignment="Left" Margin="35,55,0,0" VerticalAlignment="Top" Click="ClientButton_Click"/>
-        <Button x:Name="ProductButton" Content="Товары" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Click="ProductButton_Click"/>
-        <Button x:Name="SuppliesButton" Content="Поставки" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Click="SuppliesButton_Click"/>
-        <Button x:Name="OdrerButton" Content="Заказы" HorizontalAlignment="Left" Margin="35,175,0,0" VerticalAlignment="Top" Click="OdrerButton_Click"/>
-        <Button x:Name="ProviderButton" Content="Поставщики" HorizontalAlignment="Left" Margin="35,215,0,0" VerticalAlignment="Top" Click="ProviderButton_Click"/>
-        <Button x:Name="RezervButton" Content="Резервация" HorizontalAlignment="Left" Margin="35,255,0,0" VerticalAlignment="Top" Click="RezervButton_Click"/>
+        <Button x:Name="HelpButton" Content="Help" HorizontalAlignment="Left" Margin="35, 10,0,0" VerticalAlignment="Top" Click="HelpButton_Click" Width="115" Height="32"/>
+        <Button x:Name="ClientButton" Content="Клиенты" HorizontalAlignment="Left" Margin="35,55,0,0" VerticalAlignment="Top" Click="ClientButton_Click" Width="115" Height="32"/>
+        <Button x:Name="ProductButton" Content="Товары" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Click="ProductButton_Click" Width="115" Height="32"/>
+        <Button x:Name="SuppliesButton" Content="Поставки" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Click="SuppliesButton_Click" Width="115" Height="32"/>
+        <Button x:Name="OdrerButton" Content="Заказы" HorizontalAlignment="Left" Margin="35,175,0,0" VerticalAlignment="Top" Click="OdrerButton_Click" Width="115" Height="32"/>
+        <Button x:Name="ProviderButton" Content="Поставщики" HorizontalAlignment="Left" Margin="35,215,0,0" VerticalAlignment="Top" Click="ProviderButton_Click" Width="115" Height="32"/>
+        <Button x:Name="RezervButton" Content="Резервация" HorizontalAlignment="Left" Margin="35,255,0,0" VerticalAlignment="Top" Click="RezervButton_Click" Width="115" Height="32"/>
     </Grid>
 </Window>

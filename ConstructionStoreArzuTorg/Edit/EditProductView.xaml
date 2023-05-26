@@ -23,7 +23,7 @@
         <ComboBox x:Name="UnitComboBox" HorizontalAlignment="Left" Margin="180,285,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" Margin="180,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="DiscountComboBox" HorizontalAlignment="Left" Margin="180,385,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AcceptProductButton" Content="Принять" HorizontalAlignment="Left" Margin="30,480,0,0" VerticalAlignment="Top" Click="AcceptProductButton_Click"/>
-        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,480,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AcceptProductButton" Content="Принять" HorizontalAlignment="Left" Margin="30,480,0,0" VerticalAlignment="Top" Click="AcceptProductButton_Click" Width="89" Height="32"/>
+        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,480,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="89" Height="32"/>
     </Grid>
 </Window>

@@ -26,9 +26,9 @@
                 <DataGridTextColumn Binding="{Binding Count}" Header="Количество"  Width="110"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddProductButton" Content="Добавить товар" HorizontalAlignment="Left" Margin="30,280,0,0" VerticalAlignment="Top" Click="AddProductButton_Click"/>
-        <Button x:Name="DeleteProductButton" Content="Удалить товар" HorizontalAlignment="Left" Margin="180,280,0,0" VerticalAlignment="Top" Click="DeleteProductButton_Click"/>
-        <Button x:Name="AddOrderButton" Content="Добавить заказ" HorizontalAlignment="Left" Margin="30,330,0,0" VerticalAlignment="Top" Click="AddOrderButton_Click"/>
-        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,330,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddProductButton" Content="Добавить товар" HorizontalAlignment="Left" Margin="30,280,0,0" VerticalAlignment="Top" Click="AddProductButton_Click" Width="137" Height="32"/>
+        <Button x:Name="DeleteProductButton" Content="Удалить товар" HorizontalAlignment="Left" Margin="180,280,0,0" VerticalAlignment="Top" Click="DeleteProductButton_Click" Width="137" Height="32"/>
+        <Button x:Name="AddOrderButton" Content="Добавить заказ" HorizontalAlignment="Left" Margin="30,330,0,0" VerticalAlignment="Top" Click="AddOrderButton_Click" Width="137" Height="32"/>
+        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,330,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="137" Height="32"/>
     </Grid>
 </Window>

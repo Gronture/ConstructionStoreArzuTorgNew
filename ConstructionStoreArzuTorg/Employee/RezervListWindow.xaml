@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
         mc:Ignorable="d"
-        Height="450" Width="1400">
+        Height="450" Width="1300">
     <Grid>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-        <Button x:Name="CreateRezervButton" Content="Создать резервацию" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="CreateRezervButton_Click"/>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="800,0,0,0">
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="171" Height="32"/>
+        <Button x:Name="CreateRezervButton" Content="Создать резервацию" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="CreateRezervButton_Click" Width="171" Height="32"/>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="660,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Название}" Header="Товар"  Width="120"/>
                 <DataGridTextColumn Binding="{Binding НазваниеКатегории}" Header="Категория"  Width="170"/>
@@ -18,7 +18,7 @@
               
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="grid" Margin="219,0,0,0" HorizontalAlignment="Left" Width="516" SelectionChanged="grid_SelectionChanged" >
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="grid" Margin="220,0,0,0" HorizontalAlignment="Left" Width="400" SelectionChanged="grid_SelectionChanged" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Изменить статус" Click="MenuItem_Click"/>
@@ -26,9 +26,8 @@
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ФамилияКлиента}" Header="Клиент"  Width="150"/>
-                <DataGridTextColumn Binding="{Binding Цена}" Header="Цена"  Width="150"/>
                 <DataGridTextColumn Binding="{Binding DateString}" Header="Дата"  Width="125"/>
-                <DataGridTextColumn Binding="{Binding НазваниеСтатуса}" Header="Статус"  Width="120"/>
+                <DataGridTextColumn Binding="{Binding НазваниеСтатуса}" Header="Статус"  Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

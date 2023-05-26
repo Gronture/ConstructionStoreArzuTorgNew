@@ -21,7 +21,7 @@
         <TextBox x:Name="StajTextBox" HorizontalAlignment="Left" Margin="150,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Margin="150,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="PositionComboBox" HorizontalAlignment="Left" Margin="150,280,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="35,320,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="35,320,0,0" VerticalAlignment="Top" Click="AddButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

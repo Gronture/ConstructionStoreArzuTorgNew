@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Add"
         mc:Ignorable="d"
-        Height="790" Width="450" Loaded="Window_Loaded">
+        Height="590" Width="450" Loaded="Window_Loaded">
     <Grid Name="grid">
         <Label Content="Название" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Производитель" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
@@ -23,7 +23,7 @@
         <ComboBox x:Name="UnitComboBox" HorizontalAlignment="Left" Margin="180,285,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" Margin="180,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="DiscountComboBox" HorizontalAlignment="Left" Margin="180,385,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddProductButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,680,0,0" VerticalAlignment="Top" Click="AddProductButton_Click"/>
-        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,680,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddProductButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,450,0,0" VerticalAlignment="Top" Click="AddProductButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="180,450,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

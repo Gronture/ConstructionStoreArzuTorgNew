@@ -21,7 +21,7 @@
         <TextBox x:Name="AgeTextBox" HorizontalAlignment="Left" Margin="150,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Margin="150,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="150,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AcceptButton" Content="Принять" HorizontalAlignment="Left" Margin="35,320,0,0" VerticalAlignment="Top" Click="AcceptButton_Click"/>
-        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AcceptButton" Content="Принять" HorizontalAlignment="Left" Margin="35,320,0,0" VerticalAlignment="Top" Click="AcceptButton_Click" Width="89" Height="32"/>
+        <Button x:Name="BackButton" Content="Отмена" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="89" Height="32"/>
     </Grid>
 </Window>

@@ -330,8 +330,12 @@ namespace ConstructionStoreArzuTorg.Employee
         private void orderGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = orderGrid.SelectedItem as OrderUpd;
-            var needList = GetProductUpds().Where(x => x.Ord == selectedItem.ID_Заказа).ToList();
-            tovarsGrid.ItemsSource = needList;
+            if (selectedItem != null)
+            {
+                var needList = GetProductUpds().Where(x => x.Ord == selectedItem.ID_Заказа).ToList();
+                tovarsGrid.ItemsSource = needList;
+            }
+            
         }
         public List<ProductUpd> GetProductUpds()
         {
@@ -358,10 +362,10 @@ namespace ConstructionStoreArzuTorg.Employee
                       joinResult => joinResult.Tovar.ID_Товара,
                       ord => ord.Товар,
                       (joinResult, ord) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, PT = joinResult.PT })
-                  .Join(db.Статус,
-                        joinResult => joinResult.Ord.Статус,
-                        status => status.ID,
-                        (joinResult, status) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = joinResult.Ord, Post = joinResult.PT, Status = status })
+                  //.Join(db.Статус,
+                  //      joinResult => joinResult.Ord.Статус,
+                  //      status => status.ID,
+                  //      (joinResult, status) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = joinResult.Ord, Post = joinResult.PT, Status = status })
 
                   .Select(x => new ProductUpd
                   {

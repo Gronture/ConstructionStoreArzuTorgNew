@@ -13,7 +13,7 @@
         <ComboBox x:Name="EmpComboBox" HorizontalAlignment="Left" Margin="160,40,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ProviderComboBox" HorizontalAlignment="Left" Margin="160,90,0,0" VerticalAlignment="Top" Width="120"/>
         <DatePicker x:Name="datepicker" HorizontalAlignment="Left" Margin="160,220,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="160,350,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top" Click="AddButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="160,350,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

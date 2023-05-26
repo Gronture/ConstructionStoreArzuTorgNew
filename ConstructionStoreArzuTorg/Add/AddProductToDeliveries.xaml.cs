@@ -39,6 +39,7 @@ namespace ConstructionStoreArzuTorg.Add
             RazmerComboBox.Text = string.Empty;
             CategorComboBox.Text = string.Empty;
             EdIzmComboBox.Text = string.Empty;
+            ColvoTextBox.Text = string.Empty;
         }
 
         public void UpdateView()

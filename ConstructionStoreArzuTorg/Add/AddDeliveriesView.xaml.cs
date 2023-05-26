@@ -41,7 +41,7 @@ namespace ConstructionStoreArzuTorg.Add
                 var secondNewList = new List<string>();
 
                 foreach (var item in secondList)
-                    secondNewList.Add(item.Фамилия);
+                    secondNewList.Add(item.Фамилия + " " + item.Имя);
                 EmpComboBox.ItemsSource = secondNewList;
             }
         }

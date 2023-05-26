@@ -11,7 +11,7 @@
         <Label Content="Оклад" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="130,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="SalaryTextBox" HorizontalAlignment="Left" Margin="130,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddPositionButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="AddPositionButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddPositionButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="AddPositionButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
     </Grid>
 </Window>

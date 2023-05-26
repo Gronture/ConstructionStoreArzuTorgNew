@@ -18,9 +18,9 @@
                 <DataGridTextColumn Binding="{Binding Телефон}" Header="Телефон" Width="100" FontFamily="Times New Roman"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddEmpButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="AddEmpButton_Click"/>
-        <Button x:Name="EditEmpButton" Content="Изменить" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="EditEmpButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddEmpButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Click="AddEmpButton_Click" Width="97" Height="32"/>
+        <Button x:Name="EditEmpButton" Content="Изменить" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="EditEmpButton_Click" Width="97" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="97" Height="32"/>
         <TextBox x:Name="SortTextBox" HorizontalAlignment="Left" Margin="30,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="SortTextBox_TextChanged"/>
     </Grid>
 </Window>

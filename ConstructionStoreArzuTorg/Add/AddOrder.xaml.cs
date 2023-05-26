@@ -33,7 +33,7 @@ namespace ConstructionStoreArzuTorg.Add
                 var newList = new List<string>();
 
                 foreach (var item in list)
-                    newList.Add(item.Фамилия);
+                    newList.Add(item.Фамилия + " " + item.Имя);
                 ClientComboBox.ItemsSource = newList;
 
 
@@ -41,7 +41,7 @@ namespace ConstructionStoreArzuTorg.Add
                 var secondNewList = new List<string>();
 
                 foreach (var item in secondList)
-                    secondNewList.Add(item.Фамилия);
+                    secondNewList.Add(item.Фамилия + " " + item.Имя);
                 EmpComboBox.ItemsSource = secondNewList;
             }
         }

@@ -15,8 +15,8 @@
         <DatePicker x:Name="toDate" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SumTextBox" HorizontalAlignment="Left" Margin="250,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="HotProductTextBox" HorizontalAlignment="Left" Margin="250,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="OutputButton" Content="Вывод" HorizontalAlignment="Left" Margin="30,250,0,0" VerticalAlignment="Top" Click="OutputButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="280,250,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="OutputButton" Content="Вывод" HorizontalAlignment="Left" Margin="30,250,0,0" VerticalAlignment="Top" Click="OutputButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="280,250,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
         
 
     </Grid>

@@ -69,6 +69,7 @@ namespace ConstructionStoreArzuTorg.Employee
 
                 for (int i = 0; i < first.Count; i++) { first[i].НаименованиеПоставщика = second[i].НаименованиеПоставщика; }
                 postavkiGrid.ItemsSource = first;
+                tovarsGrid.ItemsSource = null;
             }
         }
         public List<ProductUpd> GetProduct()
@@ -293,8 +294,12 @@ namespace ConstructionStoreArzuTorg.Employee
         private void postavkiGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = postavkiGrid.SelectedItem as DeliveriesUpd;
-            var needList = GetProductUpds().Where(x => x.Post == selectedItem.ID).ToList();
-            tovarsGrid.ItemsSource = needList;
+            if (selectedItem != null)
+            {
+                var needList = GetProductUpds().Where(x => x.Post == selectedItem.ID).ToList();
+                tovarsGrid.ItemsSource = needList;
+
+            }
         }
 
         public List<ProductUpd> GetProductUpds()

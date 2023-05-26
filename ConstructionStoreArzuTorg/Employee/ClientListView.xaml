@@ -18,10 +18,10 @@
                 <DataGridTextColumn Binding="{Binding Адрес}" Header="Адрес" Width="180" FontFamily="Times New Roman"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddClientButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Click="AddClientButton_Click"/>
-        <Button x:Name="EditCleintButton" Content="Изменить" HorizontalAlignment="Left" Margin="30,100,0,0" VerticalAlignment="Top" Click="EditCleintButton_Click"/>
+        <Button x:Name="AddClientButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Click="AddClientButton_Click" Width="97" Height="32"/>
+        <Button x:Name="EditCleintButton" Content="Изменить" HorizontalAlignment="Left" Margin="30,100,0,0" VerticalAlignment="Top" Click="EditCleintButton_Click" Width="97" Height="32"/>
         <TextBox x:Name="SortTextBox" HorizontalAlignment="Left" Margin="30,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SortTextBox_TextChanged"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="90,200,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="30,250,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="97" Height="32"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top" Click="DeleteButton_Click" Width="97" Height="32"/>
     </Grid>
 </Window>

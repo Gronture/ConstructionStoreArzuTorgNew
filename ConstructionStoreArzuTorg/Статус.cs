@@ -17,15 +17,12 @@ namespace ConstructionStoreArzuTorg
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Статус()
         {
-            this.ЗаказанныеТовары = new HashSet<ЗаказанныеТовары>();
             this.Резервация = new HashSet<Резервация>();
         }
     
         public int ID { get; set; }
         public string Название { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ЗаказанныеТовары> ЗаказанныеТовары { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Резервация> Резервация { get; set; }
     }

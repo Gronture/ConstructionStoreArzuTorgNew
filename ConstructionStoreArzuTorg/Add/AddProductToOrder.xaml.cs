@@ -35,6 +35,7 @@ namespace ConstructionStoreArzuTorg.Add
             RazmerComboBox.Text = string.Empty;
             CategorComboBox.Text = string.Empty;
             EdIzmComboBox.Text = string.Empty;
+            ColvoTextBox.Text = string.Empty;
         }
 
         public void UpdateView()
@@ -61,7 +62,7 @@ namespace ConstructionStoreArzuTorg.Add
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
-                      НазваниеКатегории = x.Param.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Ord = x.Ord.Заказ,

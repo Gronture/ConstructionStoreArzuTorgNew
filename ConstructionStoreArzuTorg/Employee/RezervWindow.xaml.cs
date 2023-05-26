@@ -30,7 +30,7 @@ namespace ConstructionStoreArzuTorg.Employee
         {
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                clientComboBox.ItemsSource = db.Клиент.Select(x => x.Фамилия).ToList();
+                clientComboBox.ItemsSource = db.Клиент.Select(x => x.Фамилия + " " + x.Имя).ToList();
             }
         }
         private void AddRezerv_Click(object sender, RoutedEventArgs e)

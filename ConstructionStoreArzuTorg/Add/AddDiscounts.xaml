@@ -9,8 +9,8 @@
     <Grid x:Name="grid">
         <TextBox x:Name="SeasonTextBox" HorizontalAlignment="Left" Margin="100,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="DiscountsTextBox" HorizontalAlignment="Left" Margin="100,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddDiscountsButton" Content="Добавить" HorizontalAlignment="Left" Margin="30,190,0,0" VerticalAlignment="Top" Click="AddDiscountsButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="150,190,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <Button x:Name="AddDiscountsButton" Content="Добавить" HorizontalAlignment="Left" Margin="20,190,0,0" VerticalAlignment="Top" Click="AddDiscountsButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="140,190,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
         <Label Content="Сезон" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top"/>
         <Label Content="Скидка" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top"/>
 

@@ -42,8 +42,8 @@ namespace ConstructionStoreArzuTorg
         public virtual DbSet<Сезонность> Сезонность { get; set; }
         public virtual DbSet<Склад> Склад { get; set; }
         public virtual DbSet<Сотрудник> Сотрудник { get; set; }
+        public virtual DbSet<СотрудникПользователь> СотрудникПользователь { get; set; }
         public virtual DbSet<Статус> Статус { get; set; }
         public virtual DbSet<Товар> Товар { get; set; }
-        public virtual DbSet<СотрудникПользователь> СотрудникПользователь { get; set; }
     }
 }
