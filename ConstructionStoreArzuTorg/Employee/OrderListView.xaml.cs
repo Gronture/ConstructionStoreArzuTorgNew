@@ -31,6 +31,11 @@ namespace ConstructionStoreArzuTorg.Employee
         {
             UpdateView();
         }
+        public OrderListView(List<ProductUpd> list)
+        {
+            InitializeComponent();
+            tovarsGrid.ItemsSource = list;
+        }
 
         public void UpdateView()
         {
@@ -368,11 +373,6 @@ namespace ConstructionStoreArzuTorg.Employee
                       joinResult => joinResult.Tovar.ID_Товара,
                       ord => ord.Товар,
                       (joinResult, ord) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, PT = joinResult.PT })
-                  //.Join(db.Статус,
-                  //      joinResult => joinResult.Ord.Статус,
-                  //      status => status.ID,
-                  //      (joinResult, status) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = joinResult.Ord, Post = joinResult.PT, Status = status })
-
                   .Select(x => new ProductUpd
                   {
                       Название = x.Tovar.Название,
@@ -394,7 +394,18 @@ namespace ConstructionStoreArzuTorg.Employee
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            var selectedItem = (ProductUpd)tovarsGrid.SelectedItem;
 
+            MessageBox.Show(selectedItem.ID_Товара.ToString());
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+                //var needProduct = db.Товар.FirstOrDefault(x => x.ID_Товара == selectedItem.ID_Товара);
+
+
+                //var needItem = db.ЗаказанныеТовары.FirstOrDefault(x => x.Товар == needProduct.ID_Товара && x.Заказ == selectedItem.Ord);
+                //new ReturnView(needItem).Show();
+                //Close();
+            }
         }
     }
 }

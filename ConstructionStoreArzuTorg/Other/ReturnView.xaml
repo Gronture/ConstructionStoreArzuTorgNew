@@ -1,0 +1,17 @@
+﻿<Window x:Class="ConstructionStoreArzuTorg.Other.ReturnView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Other"
+        mc:Ignorable="d"
+        Height="250" Width="400">
+    <Grid>
+        <Label Content="Товар" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Количество" HorizontalAlignment="Left" Margin="20,75,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tovarTextBox" HorizontalAlignment="Left" Margin="150,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="countTextBox" HorizontalAlignment="Left" Margin="150,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="EditStatusButton" Content="Изменить" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="98" Height="32" Click="EditStatusButton_Click"/>
+        <Button x:Name="BackBotton" Content="Отмена" HorizontalAlignment="Left" Margin="150,140,0,0" VerticalAlignment="Top" Width="98" Click="BackBotton_Click"/>
+    </Grid>
+</Window>
