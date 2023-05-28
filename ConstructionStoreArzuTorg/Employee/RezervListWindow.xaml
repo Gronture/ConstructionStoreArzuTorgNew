@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Height="450" Width="1300">
     <Grid>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="171" Height="32"/>
         <Button x:Name="CreateRezervButton" Content="Создать резервацию" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="CreateRezervButton_Click" Width="171" Height="32"/>
+        <Button x:Name="DeleteRezervButton" Content="Удалить резервацию" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="171" Height="32" Click="DeleteRezervButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="171" Height="32"/>
         <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="660,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Название}" Header="Товар"  Width="120"/>

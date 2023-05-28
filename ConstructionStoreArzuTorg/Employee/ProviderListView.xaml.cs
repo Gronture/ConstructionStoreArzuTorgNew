@@ -1,5 +1,6 @@
 ﻿using ConstructionStoreArzuTorg.Add;
 using ConstructionStoreArzuTorg.Edit;
+using ConstructionStoreArzuTorg.Manager;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -63,7 +64,7 @@ namespace ConstructionStoreArzuTorg.Employee
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            new EmployeeMenu().Show();
+            new ManagerMenuView().Show();
             Close();
         }
     }

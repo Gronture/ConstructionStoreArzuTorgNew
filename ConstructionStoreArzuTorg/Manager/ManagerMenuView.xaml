@@ -11,5 +11,8 @@
         <Button x:Name="DiscountsButton" Content="Сезонность" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Click="DiscountsButton_Click" Width="110" Height="32"/>
         <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Click="ReportButton_Click" Width="110" Height="32"/>
         <Button x:Name="WarehouseButton" Content="Склад" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Click="WarehouseButton_Click" Width="110" Height="32"/>
+        <Button x:Name="ProviderButton" Content="Поставщики" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Click="ProviderButton_Click" Width="115" Height="32"/>
+        <Button x:Name="SuppliesButton" Content="Поставки" HorizontalAlignment="Left" Margin="30,255,0,0" VerticalAlignment="Top" Click="SuppliesButton_Click" Width="115" Height="32"/>
+
     </Grid>
 </Window>

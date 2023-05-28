@@ -36,23 +36,10 @@ namespace ConstructionStoreArzuTorg.Employee
             new ProductListView().Show();
             Close();
         }
-
-        private void SuppliesButton_Click(object sender, RoutedEventArgs e)
-        {
-            new DeliveriesListView().Show();
-            Close();
-        }
-
         
         private void OdrerButton_Click(object sender, RoutedEventArgs e)
         {
             new OrderListView().Show();
-            Close();
-        }
-
-        private void ProviderButton_Click(object sender, RoutedEventArgs e)
-        {
-            new ProviderListView().Show();
             Close();
         }
 

@@ -55,6 +55,10 @@ namespace ConstructionStoreArzuTorg.Add
                       joinResult => joinResult.Tovar.ID_Категории,
                       param => param.ID_Категории,
                       (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
+                   .Join(db.Сезонность,
+                      joinResult => joinResult.Tovar.Сезонность,
+                      param => param.ID,
+                      (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
                      .Join(db.ЗаказанныеТовары,
                       joinResult => joinResult.Tovar.ID_Товара,
                       ord => ord.Товар,
@@ -65,6 +69,7 @@ namespace ConstructionStoreArzuTorg.Add
                       НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
+                      Сезонность = x.Tovar.Сезонность1.Название_сезона,
                       Ord = x.Ord.Заказ,
                       Count = x.Ord.Количество
                   }).Where(x => x.Ord == _заказ.ID_Заказа).ToList();

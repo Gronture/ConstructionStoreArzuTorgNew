@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Office.Interop.Word;
-
+using ConstructionStoreArzuTorg.Manager;
 
 namespace ConstructionStoreArzuTorg.Employee
 {
@@ -188,7 +188,7 @@ namespace ConstructionStoreArzuTorg.Employee
                 Microsoft.Office.Interop.Word._Document wordDocument = null;
                 wordApplication.Visible = true;
 
-                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg\ConstructionStoreArzuTorg\secondRerort.docx";
+                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg-master\ConstructionStoreArzuTorg\DeliverReport.docx";
 
                 try
                 {
@@ -287,7 +287,7 @@ namespace ConstructionStoreArzuTorg.Employee
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            new EmployeeMenu().Show();
+            new ManagerMenuView().Show();
             Close();
         }
 

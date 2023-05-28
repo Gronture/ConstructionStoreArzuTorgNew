@@ -42,9 +42,9 @@ namespace ConstructionStoreArzuTorg.Add
                 foreach (var item in thristlist)
                     UnitComboBox.Items.Add(item.Название);
 
-                var lastlist = db.Сезонность.ToList();
-                foreach (var item in lastlist)
-                    DiscountComboBox.Items.Add(item.Название_сезона + " " + item.Процент);
+                var forelist = db.Сезонность.Distinct().ToList();
+                foreach (var item in forelist)
+                    NameSeasonComboBox.Items.Add(item.Название_сезона);
             }
         }
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
@@ -100,6 +100,32 @@ namespace ConstructionStoreArzuTorg.Add
         {
             new ProductListView().Show();
             Close();
+        }
+
+        private void NameSeasonComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (NameSeasonComboBox.SelectedItem == null)
+                return;
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+                var selectedItem = NameSeasonComboBox.SelectedItem.ToString();
+
+                var needSeasones = db.Сезонность.ToList();
+
+                var season = new List<int>();
+
+                var needSeasons = db.Сезонность.Where(x => x.Название_сезона == selectedItem).ToList().Distinct().ToList();
+
+                foreach (var i in needSeasons)
+                {
+                    var needSeason = needSeasones.Where(x => x.ID == i.ID).FirstOrDefault();
+                    season.Add(needSeason.Процент);
+                }
+
+
+                DiscountComboBox.ItemsSource = season.Distinct();
+
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ConstructionStoreArzuTorg.Add;
 using ConstructionStoreArzuTorg.ClassConnection;
+using Syncfusion.XlsIO.Implementation.XmlSerialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -207,6 +208,7 @@ namespace ConstructionStoreArzuTorg.Employee
         }
         private void ReportButton_Click(object sender, RoutedEventArgs e)
         {
+
             var selectedItem = orderGrid.SelectedItem as OrderUpd;
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
@@ -222,7 +224,7 @@ namespace ConstructionStoreArzuTorg.Employee
                 Microsoft.Office.Interop.Word._Document wordDocument = null;
                 wordApplication.Visible = true;
 
-                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg\ConstructionStoreArzuTorg\firstReport.docx";
+                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg-master\ConstructionStoreArzuTorg\OrderRerort.docx";
 
                 try
                 {
@@ -242,11 +244,11 @@ namespace ConstructionStoreArzuTorg.Employee
 
 
 
-
+                //var secondObject = db.ЗаказанныеТовары.Where(x => x.ID == )
                 var needObject = db.Заказ.Where(x => x.ID_Заказа == selectedItem.ID_Заказа).FirstOrDefault();
                 var client = db.Клиент.Where(x => x.ID_Клиента == needObject.ID_Клиента).FirstOrDefault();
                 var worker = db.Сотрудник.Where(x => x.ID_Сотрудника == needObject.ID_Сотрудника).FirstOrDefault();
-
+               // var tovar = db.Товар.Where(x => x.ID_Товара == needObject.) 
 
 
                 var needCount = uniqueElements + 1;
@@ -269,6 +271,10 @@ namespace ConstructionStoreArzuTorg.Employee
                 wordTable.Cell(1, 1).Range.Text = "Наименование товара";
                 wordTable.Cell(1, 2).Range.Text = "Категория";
                 wordTable.Cell(1, 3).Range.Text = "Количество";
+                //wordTable.Cell(1, 4).Range.Text = "Стоимость";
+                //wordTable.Cell(1, 5).Range.Text = "Стоимость";
+                //wordTable.Cell(1, 6).Range.Text = "Стоимость";
+                //wordTable.Cell(1, 7).Range.Text = "Стоимость";
 
 
 

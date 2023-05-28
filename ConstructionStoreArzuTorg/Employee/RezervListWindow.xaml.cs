@@ -187,8 +187,27 @@ namespace ConstructionStoreArzuTorg.Employee
         private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = grid.SelectedItem as RezervUpd;
-            var needList = GetProductUpds().Where(x => x.Rezerv == selectedItem.ID).ToList();
-            tovarsGrid.ItemsSource = needList;
+            if (selectedItem != null)
+            {
+                var needList = GetProductUpds().Where(x => x.Rezerv == selectedItem.ID).ToList();
+                tovarsGrid.ItemsSource = needList;
+            }
+            
+        }
+
+        private void DeleteRezervButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = grid.SelectedItem as RezervUpd;
+
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+                var item = db.Резервация.Where(x => x.ID == selectedItem.ID).FirstOrDefault();
+                db.Резервация.Remove(item);
+                db.SaveChanges();
+
+                Update();
+
+            }
         }
     }
 }

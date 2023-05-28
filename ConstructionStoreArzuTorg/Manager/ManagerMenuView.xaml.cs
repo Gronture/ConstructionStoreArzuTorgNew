@@ -1,4 +1,5 @@
-﻿using ConstructionStoreArzuTorg.Report;
+﻿using ConstructionStoreArzuTorg.Employee;
+using ConstructionStoreArzuTorg.Report;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,18 @@ namespace ConstructionStoreArzuTorg.Manager
         private void ReportButton_Click(object sender, RoutedEventArgs e)
         {
             new ReportMenu().Show();
+            Close();
+        }
+
+        private void SuppliesButton_Click(object sender, RoutedEventArgs e)
+        {
+            new DeliveriesListView().Show();
+            Close();
+        }
+
+        private void ProviderButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ProviderListView().Show();
             Close();
         }
     }

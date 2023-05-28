@@ -11,7 +11,7 @@
         <Label Content="Категория" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Размеры" HorizontalAlignment="Left" Margin="30,130,0,0" VerticalAlignment="Top"/>
         <Label Content="Единица измерения" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top"/>
-        <Label Content="Каличество" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="Количество" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ProductComboBox" HorizontalAlignment="Left" Margin="180,35,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ProductComboBox_SelectionChanged"/>
         <ComboBox x:Name="CategorComboBox" HorizontalAlignment="Left" Margin="180,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CategorComboBox_SelectionChanged"/>
         <ComboBox x:Name="RazmerComboBox" HorizontalAlignment="Left" Margin="180,135,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="RazmerComboBox_SelectionChanged" />

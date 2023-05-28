@@ -12,5 +12,6 @@ namespace ConstructionStoreArzuTorg.ClassConnection
         public string НазваниеТовара { get; set; }
         public int Количество { get; set; }
         public int Резервирование { get; set; }
+        public decimal Summ { get; set; }
     }
 }
