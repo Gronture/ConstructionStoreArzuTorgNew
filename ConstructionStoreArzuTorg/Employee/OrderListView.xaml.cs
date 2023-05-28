@@ -1,5 +1,6 @@
 ﻿using ConstructionStoreArzuTorg.Add;
 using ConstructionStoreArzuTorg.ClassConnection;
+using Syncfusion.Linq;
 using Syncfusion.XlsIO.Implementation.XmlSerialization;
 using System;
 using System.Collections.Generic;
@@ -277,11 +278,16 @@ namespace ConstructionStoreArzuTorg.Employee
                 wordTable.Cell(1, 2).Range.Text = "Категория";
                 wordTable.Cell(1, 3).Range.Text = "Количество";
                 //wordTable.Cell(1, 4).Range.Text = "Стоимость";
-                //wordTable.Cell(1, 5).Range.Text = "Стоимость";
-                //wordTable.Cell(1, 6).Range.Text = "Стоимость";
-                //wordTable.Cell(1, 7).Range.Text = "Стоимость";
+                //wordTable.Cell(1, 5).Range.Text = "Стоимость без НДС";
+                //wordTable.Cell(1, 6).Range.Text = "НДС";
+                //wordTable.Cell(1, 7).Range.Text = "Стоимость с НДС";
 
 
+
+
+                decimal nds = needObject.Сумма * 20 / 120;
+                decimal sumNoNDS = needObject.Сумма - nds;
+                //decimal cena = sumNoNDS / joinedDataProduct.Count;
 
 
                 for (int i = 0; i < joinedDataProduct.Count; i++)
@@ -289,11 +295,16 @@ namespace ConstructionStoreArzuTorg.Employee
                     wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
                     wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].НазваниеКатегории;
                     wordTable.Cell(i + 2, 3).Range.Text = joinedDataProduct[i].Count.ToString();
-
-
+                    //wordTable.Cell(i + 2, 4).Range.Text = joinedDataProduct[i].Стоимость.ToString();
+                    //wordTable.Cell(i + 2, 5).Range.Text = (joinedDataProduct[i].Стоимость * needObject.Сумма).ToString();
+                    //wordTable.Cell(i + 2, 6).Range.Text = joinedDataProduct[i].Стоимость.ToString();
+                    //wordTable.Cell(i + 2, 7).Range.Text = joinedDataProduct[i].Стоимость.ToString();
                 }
 
                 Random random = new Random();
+
+               
+
 
                 var items = new Dictionary<string, string>
                 {
@@ -301,7 +312,10 @@ namespace ConstructionStoreArzuTorg.Employee
                     { "{Client}", client.Фамилия + " " + client.Имя },
                     { "{Worker}", worker.Фамилия + " " + worker.Имя },
                     { "{Addres}", client.Адрес },
-                    { "{Sum}", needObject.Сумма.ToString() },
+                    { "{Sum}", Math.Round(needObject.Сумма,2).ToString() },
+                    { "{SumNDS}", Math.Round(nds,2).ToString() },
+                    { "{SumNoNDS}", Math.Round(sumNoNDS, 2).ToString() },
+
                     { "{ID}",  random.Next(1000000, 9999999) + needObject.ID_Заказа.ToString() }
                 };
 

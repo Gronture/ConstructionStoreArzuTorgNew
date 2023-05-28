@@ -235,6 +235,8 @@ namespace ConstructionStoreArzuTorg.Employee
                 wordTable.Cell(1, 1).Range.Text = "Наименование товара";
                 wordTable.Cell(1, 2).Range.Text = "Категория";
                 wordTable.Cell(1, 3).Range.Text = "Количество";
+                //wordTable.Cell(1, 4).Range.Text = "Стоимость";
+
 
 
 
@@ -242,12 +244,16 @@ namespace ConstructionStoreArzuTorg.Employee
                 for (int i = 0; i < joinedDataProduct.Count; i++)
                 {
                     wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
-                   
                     wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].НазваниеКатегории;
                     wordTable.Cell(i + 2, 3).Range.Text = joinedDataProduct[i].Count.ToString();
-
-
+                    //wordTable.Cell(i + 2, 4).Range.Text = joinedDataProduct[i].Стоимость.ToString();
                 }
+
+
+                decimal nds = needObject.Сумма * 20 / 120;
+                decimal sumNoNDS = needObject.Сумма - nds;
+                //decimal cena = sumNoNDS / joinedDataProduct.Count;
+
 
                 Random random = new Random();
 
@@ -257,6 +263,9 @@ namespace ConstructionStoreArzuTorg.Employee
                     { "{Provider}", provider.Наименование },
                     { "{Worker}", worker.Фамилия + " " + worker.Имя },
                     { "{Number}", provider.Расчётный_счёт.ToString() },
+                    { "{Sum}", Math.Round(needObject.Сумма,2).ToString() },
+                    { "{SumNDS}", Math.Round(nds,2).ToString() },
+                    { "{SumNoNDS}", Math.Round(sumNoNDS, 2).ToString() },
                     { "{ID}",  random.Next(1000000, 9999999) + needObject.ID.ToString() }
                 };
 
