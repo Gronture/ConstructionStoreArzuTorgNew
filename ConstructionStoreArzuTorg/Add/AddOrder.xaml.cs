@@ -23,26 +23,15 @@ namespace ConstructionStoreArzuTorg.Add
         public AddOrder()
         {
             InitializeComponent();
+            Load();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Load()
         {
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                var list = db.Клиент.ToList();
-                var newList = new List<string>();
-
-                foreach (var item in list)
-                    newList.Add(item.Фамилия);
-                ClientComboBox.ItemsSource = newList;
-
-
-                var secondList = db.Сотрудник.ToList();
-                var secondNewList = new List<string>();
-
-                foreach (var item in secondList)
-                    secondNewList.Add(item.Фамилия);
-                EmpComboBox.ItemsSource = secondNewList;
+                ClientComboBox.ItemsSource = db.Клиент.Select(x => x.Фамилия + " " + x.Имя).ToList();
+                EmpComboBox.ItemsSource = db.Сотрудник.Select(x => x.Фамилия + " " + x.Имя).ToList();   
             }
         }
 
@@ -74,8 +63,8 @@ namespace ConstructionStoreArzuTorg.Add
                 try
                 {
                     var zakaz = new Заказ();
-                    zakaz.ID_Клиента = db.Клиент.Where(x => x.Фамилия == ClientComboBox.Text).FirstOrDefault().ID_Клиента;
-                    zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
+                    zakaz.ID_Клиента = db.Клиент.Where(x => x.Фамилия + " " + x.Имя == ClientComboBox.Text).FirstOrDefault().ID_Клиента;
+                    zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия + " " + x.Имя == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
                     zakaz.Дата_заказа = (DateTime)datepicker.SelectedDate;
                    
 

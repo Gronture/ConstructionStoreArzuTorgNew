@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
         mc:Ignorable="d"
         Height="250" Width="400">
-    <Grid>
+    <Grid x:Name="grid">
         <Label Content="Клиент" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Дата" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="clientComboBox"  Margin="140,30,150,0" VerticalAlignment="Top"/>
-        <DatePicker Name="calendar" Margin="140,80,150,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="calendar" Margin="140,80,150,0" VerticalAlignment="Top"/>
         <Button x:Name="AddRezerv" Content="Добавить" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" Click="AddRezerv_Click" Width="96" Height="32"/>
         <Button x:Name="Back" Content="Отмена" HorizontalAlignment="Left" Margin="170,150,0,0" VerticalAlignment="Top" Click="Back_Click" Width="96" Height="32"/>
     </Grid>

@@ -35,10 +35,31 @@ namespace ConstructionStoreArzuTorg.Employee
         }
         private void AddRezerv_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var control in grid.Children)
+            {
+
+                if (control is ComboBox)
+                {
+                    var comboBox = (ComboBox)control;
+                    if (comboBox.SelectedValue == null || comboBox.SelectedValue.ToString() == string.Empty)
+                    {
+                        MessageBox.Show("Ошибка");
+                        return;
+                    }
+                }
+                if (control is DatePicker)
+                {
+                    var datePicker = (DatePicker)control;
+                    if (calendar.SelectedDate == null)
+                    {
+                        MessageBox.Show("Ошибка");
+                    }
+                }
+            }
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
                 var newRezerv = new Резервация();
-                newRezerv.Клиент = db.Клиент.FirstOrDefault(x => x.Фамилия == clientComboBox.SelectedItem.ToString()).ID_Клиента;
+                newRezerv.Клиент = db.Клиент.FirstOrDefault(x => x.Фамилия + " " + x.Имя == clientComboBox.SelectedItem.ToString()).ID_Клиента;
                 newRezerv.Дата = (DateTime)calendar.SelectedDate;
                 newRezerv.Статус = 1;
                 newRezerv.Цена = 0;

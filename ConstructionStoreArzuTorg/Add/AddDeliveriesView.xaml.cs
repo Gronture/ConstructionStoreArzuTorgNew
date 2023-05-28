@@ -29,20 +29,8 @@ namespace ConstructionStoreArzuTorg.Add
         {
             using(ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                var list = db.Поставщик.ToList();
-                var newList = new List<string>();
-
-                foreach (var item in list)
-                    newList.Add(item.Наименование);
-                ProviderComboBox.ItemsSource = newList;
-
-
-                var secondList = db.Сотрудник.ToList();
-                var secondNewList = new List<string>();
-
-                foreach (var item in secondList)
-                    secondNewList.Add(item.Фамилия);
-                EmpComboBox.ItemsSource = secondNewList;
+                EmpComboBox.ItemsSource = db.Сотрудник.Select(x => x.Фамилия + " " + x.Имя).ToList();
+                ProviderComboBox.ItemsSource = db.Поставщик.Select(x => x.Наименование).ToList();
             }
         }
 
@@ -84,7 +72,7 @@ namespace ConstructionStoreArzuTorg.Add
                 {
                     var postavka = new Поставки();
                     postavka.Поставщик = db.Поставщик.Where(x => x.Наименование == ProviderComboBox.Text).FirstOrDefault().ID_Поставщика;
-                    postavka.Сотрудник = db.Сотрудник.Where(x => x.Фамилия == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
+                    postavka.Сотрудник = db.Сотрудник.Where(x => x.Фамилия + " " + x.Имя == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
                     postavka.Дата = (DateTime)datepicker.SelectedDate;
 
                     db.Поставки.Add(postavka);
