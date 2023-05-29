@@ -1,5 +1,6 @@
 ﻿using ConstructionStoreArzuTorg.Add;
 using ConstructionStoreArzuTorg.ClassConnection;
+using ConstructionStoreArzuTorg.Other;
 using Syncfusion.Linq;
 using Syncfusion.XlsIO.Implementation.XmlSerialization;
 using System;
@@ -389,13 +390,15 @@ namespace ConstructionStoreArzuTorg.Employee
                       (joinResult, ord) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, PT = joinResult.PT })
                   .Select(x => new ProductUpd
                   {
+                      ID_Товара = x.Tovar.ID_Товара,
                       Название = x.Tovar.Название,
                       НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
                       ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
                       Сезонность = x.Param.Название_сезона,
                       Ord = x.Ord.Заказ,
-                      Count = x.Ord.Количество
+                      Count = x.Ord.Количество,
+                      ID = x.Ord.ID     
                   }).ToList();
 
             }
@@ -409,16 +412,17 @@ namespace ConstructionStoreArzuTorg.Employee
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = (ProductUpd)tovarsGrid.SelectedItem;
+            
 
-            MessageBox.Show(selectedItem.ID_Товара.ToString());
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                //var needProduct = db.Товар.FirstOrDefault(x => x.ID_Товара == selectedItem.ID_Товара);
+                var needProduct = db.Товар.FirstOrDefault(x => x.ID_Товара == selectedItem.ID_Товара);
+               
 
-
-                //var needItem = db.ЗаказанныеТовары.FirstOrDefault(x => x.Товар == needProduct.ID_Товара && x.Заказ == selectedItem.Ord);
-                //new ReturnView(needItem).Show();
-                //Close();
+                var needItem = db.ЗаказанныеТовары.FirstOrDefault(x => x.ID == selectedItem.ID);
+               
+                new ReturnView(needItem).Show();
+                Close();
             }
         }
     }

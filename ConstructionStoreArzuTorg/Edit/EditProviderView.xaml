@@ -4,6 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Edit"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle ="None"
         mc:Ignorable="d"
         Height="550" Width="400" Loaded="Window_Loaded">
     <Grid x:Name="grid">

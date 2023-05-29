@@ -28,6 +28,7 @@ namespace ConstructionStoreArzuTorg.ClassConnection
         public string Status { get; set; }
         public decimal Price { get; set; }
         public List<string> StatusList { get; set; }
+        public int ID { get; set; }
 
         public ProductUpd()
         {

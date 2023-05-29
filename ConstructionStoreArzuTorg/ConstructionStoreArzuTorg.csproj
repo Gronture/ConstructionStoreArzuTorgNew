@@ -267,9 +267,6 @@
     <Compile Include="Report\ReportMenu.xaml.cs">
       <DependentUpon>ReportMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReturnView.xaml.cs">
-      <DependentUpon>ReturnView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ВозвратТовара.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -467,10 +464,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Report\ReportMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ReturnView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

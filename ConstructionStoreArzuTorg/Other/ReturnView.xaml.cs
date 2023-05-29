@@ -33,6 +33,8 @@ namespace ConstructionStoreArzuTorg.Other
             InitializeComponent();
             LoadData();
         }
+
+
         public void LoadData()
         {
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
@@ -60,6 +62,7 @@ namespace ConstructionStoreArzuTorg.Other
                       (joinResult, ord) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Ord = ord, PT = joinResult.PT })
                   .Select(x => new ProductUpd
                   {
+                      ID_Товара = x.Tovar.ID_Товара,
                       Название = x.Tovar.Название,
                       НазваниеКатегории = x.Tovar.Категория.Название,
                       Размеры = x.Tovar.РазмерыТовара.Размер,
@@ -68,6 +71,12 @@ namespace ConstructionStoreArzuTorg.Other
                       Ord = x.Ord.Заказ,
                       Count = x.Ord.Количество
                   }).ToList();
+
+             
+
+
+                tovarTextBox.Text = list.FirstOrDefault(x => x.ID_Товара == product.Товар && x.Ord == product.Заказ).Название;
+              
 
             }
         }
