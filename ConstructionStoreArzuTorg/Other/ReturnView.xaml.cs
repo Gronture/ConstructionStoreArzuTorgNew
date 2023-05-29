@@ -107,6 +107,9 @@ namespace ConstructionStoreArzuTorg.Other
                         var productPrice = db.Товар.FirstOrDefault(x => x.ID_Товара == itemToEdit.Товар).Стоимость;
 
 
+                        var itemOnWarehouse = db.Склад.FirstOrDefault(x => x.Товар == itemToEdit.Товар);
+                        itemOnWarehouse.Количество += inTextBoxCount;
+
                         var supply = db.Заказ.FirstOrDefault(x => x.ID_Заказа == itemToEdit.Заказ);
 
                         if (itemToEdit != null)

@@ -29,6 +29,7 @@ namespace ConstructionStoreArzuTorg.ClassConnection
         public decimal Price { get; set; }
         public List<string> StatusList { get; set; }
         public int ID { get; set; }
+        public decimal SumToReceipt { get; set; }
 
         public ProductUpd()
         {
