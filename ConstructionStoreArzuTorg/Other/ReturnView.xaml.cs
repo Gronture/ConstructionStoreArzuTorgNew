@@ -107,9 +107,6 @@ namespace ConstructionStoreArzuTorg.Other
                         var productPrice = db.Товар.FirstOrDefault(x => x.ID_Товара == itemToEdit.Товар).Стоимость;
 
 
-                        var itemOnWarehouse = db.Склад.FirstOrDefault(x => x.Товар == itemToEdit.Товар);
-                        itemOnWarehouse.Количество += inTextBoxCount;
-
                         var supply = db.Заказ.FirstOrDefault(x => x.ID_Заказа == itemToEdit.Заказ);
 
                         if (itemToEdit != null)
@@ -123,6 +120,9 @@ namespace ConstructionStoreArzuTorg.Other
                             item.Заказ = itemToEdit.Заказ;
                             item.Заказанные_товары = itemToEdit.ID;
                             db.ВозвратТовара.Add(item);
+
+                            var itemOnWarehouse = db.Склад.FirstOrDefault(x => x.Товар == itemToEdit.Товар);
+                            itemOnWarehouse.Количество += inTextBoxCount;
 
 
                             supply.Сумма = (decimal)db.ЗаказанныеТовары.Where(x => x.Заказ == supply.ID_Заказа).Sum(x => x.Сумма);

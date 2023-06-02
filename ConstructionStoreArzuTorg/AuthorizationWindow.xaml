@@ -4,9 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle ="None"
         mc:Ignorable="d"
         Height="250" Width="350">
     <Grid>
@@ -14,8 +11,8 @@
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="60,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="LoginTextBox" HorizontalAlignment="Left" Margin="150,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="150,75,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="ClearButton" Content="Очистить" HorizontalAlignment="Left" Margin="60,150,0,0" VerticalAlignment="Top" Click="ClearButton_Click" Width="94" Height="32"/>
-        <Button x:Name="AuthButton" Content="Войти" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Click="AuthButton_Click" Width="94"/>
+        <Button x:Name="ClearButton" Content="Очистить" HorizontalAlignment="Left" Margin="60,150,0,0" VerticalAlignment="Top" Click="ClearButton_Click"/>
+        <Button x:Name="AuthButton" Content="Войти" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Click="AuthButton_Click"/>
 
     </Grid>
 </Window>

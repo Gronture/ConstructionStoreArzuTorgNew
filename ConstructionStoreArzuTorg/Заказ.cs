@@ -22,7 +22,7 @@ namespace ConstructionStoreArzuTorg
         }
     
         public int ID_Заказа { get; set; }
-        public int ID_Клиента { get; set; }
+        public Nullable<int> ID_Клиента { get; set; }
         public int ID_Сотрудника { get; set; }
         public decimal Сумма { get; set; }
         public System.DateTime Дата_заказа { get; set; }

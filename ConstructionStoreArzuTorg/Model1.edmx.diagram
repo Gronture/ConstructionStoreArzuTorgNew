@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b82c83d74d248c4a6f449265441b863" Name="Diagram1">
+      <Diagram DiagramId="064a4ce70ca54754904cd8f6a8cb5238" Name="Diagram1">
+        <EntityTypeShape EntityType="ConstructionstoreModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.ВозвратТовара" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.Должность" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.Единицы_измерения" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
@@ -20,6 +21,7 @@
         <EntityTypeShape EntityType="ConstructionstoreModel.Резервация" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.РезервацияТоваров" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.Сезонность" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConstructionstoreModel.СерийныеНомера" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.Склад" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.Сотрудник" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ConstructionstoreModel.СотрудникПользователь" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
@@ -44,7 +46,7 @@
         <AssociationConnector Association="ConstructionstoreModel.FK_Резервация_Статус" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionstoreModel.FK_РезервацияТоваров_Резервация" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionstoreModel.FK_РезервацияТоваров_Товар" ManuallyRouted="false" />
-        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_Скидки" ManuallyRouted="false" />
+        <AssociationConnector Association="ConstructionstoreModel.FK_Товар_Сезонность" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionstoreModel.FK_Склад_Товар" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionstoreModel.FK_СотрудникПользователь_Сотрудник" ManuallyRouted="false" />
       </Diagram>

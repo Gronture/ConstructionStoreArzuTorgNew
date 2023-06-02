@@ -4,17 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionStoreArzuTorg.Employee"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle ="None"
         mc:Ignorable="d"
         Height="450" Width="1470" Loaded="Window_Loaded">
     <Grid>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="AddButton_Click" Width="130" Height="32"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Click="DeleteButton_Click" Width="130" Height="32"/>
-        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Click="ReportButton_Click" Width="130" Height="32"/>
-        <Button x:Name="ReceiptButton" Content="Выписать Чек" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Click="ReceiptButton_Click" Width="130" Height="32"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="130" Height="32"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="AddButton_Click" Width="96" Height="32"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Click="DeleteButton_Click" Width="96" Height="32"/>
+        <Button x:Name="ReportButton" Content="Отчёт" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Click="ReportButton_Click" Width="96" Height="32"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="40,190,0,0" VerticalAlignment="Top" Click="BackButton_Click" Width="96" Height="32"/>
         <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="tovarsGrid" Margin="800,0,25,0" RenderTransformOrigin="0.5,0.5" SelectionChanged="tovarsGrid_SelectionChanged">
             <DataGrid.ContextMenu>
                 <ContextMenu>

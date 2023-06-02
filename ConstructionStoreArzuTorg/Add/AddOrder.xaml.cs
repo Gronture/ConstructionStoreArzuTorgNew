@@ -30,7 +30,11 @@ namespace ConstructionStoreArzuTorg.Add
         {
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                ClientComboBox.ItemsSource = db.Клиент.Select(x => x.Фамилия + " " + x.Имя).ToList();
+                var clients = new List<string>() { "Продать сходу" };
+                clients.AddRange(db.Клиент.Select(x => x.Фамилия + " " + x.Имя).ToList());
+                
+                ClientComboBox.ItemsSource = clients;
+                
                 EmpComboBox.ItemsSource = db.Сотрудник.Select(x => x.Фамилия + " " + x.Имя).ToList();   
             }
         }
@@ -60,24 +64,33 @@ namespace ConstructionStoreArzuTorg.Add
             }
             using (ConstructionStoreEntities db = new ConstructionStoreEntities())
             {
-                try
-                {
+                //try
+                //{
                     var zakaz = new Заказ();
-                    zakaz.ID_Клиента = db.Клиент.Where(x => x.Фамилия + " " + x.Имя == ClientComboBox.Text).FirstOrDefault().ID_Клиента;
-                    zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия + " " + x.Имя == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
-                    zakaz.Дата_заказа = (DateTime)datepicker.SelectedDate;
-                   
+                    if (ClientComboBox.Text != "Продать сходу")
+                    {
+                        zakaz.ID_Клиента = db.Клиент.Where(x => x.Фамилия + " " + x.Имя == ClientComboBox.Text).FirstOrDefault().ID_Клиента;                     
+                        zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия + " " + x.Имя == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
+                        zakaz.Дата_заказа = (DateTime)datepicker.SelectedDate;
+                    }
+                    else
+                    {
+                        
+                        zakaz.ID_Сотрудника = db.Сотрудник.Where(x => x.Фамилия + " " + x.Имя == EmpComboBox.Text).FirstOrDefault().ID_Сотрудника;
+                        zakaz.Дата_заказа = (DateTime)datepicker.SelectedDate;
+                    }
 
+                  
                     db.Заказ.Add(zakaz);
                     db.SaveChanges();
 
                     new AddProductToOrder(zakaz).Show();
                     this.Close();
-                }
-                catch
-                {
-                    MessageBox.Show("Ошибка ошибка");
-                }
+                //}
+                //catch(Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message);
+                //}
             }
         }
 

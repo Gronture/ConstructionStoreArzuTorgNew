@@ -25,6 +25,7 @@ namespace ConstructionStoreArzuTorg
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ВозвратТовара> ВозвратТовара { get; set; }
         public virtual DbSet<Должность> Должность { get; set; }
         public virtual DbSet<Единицы_измерения> Единицы_измерения { get; set; }
@@ -40,6 +41,7 @@ namespace ConstructionStoreArzuTorg
         public virtual DbSet<Резервация> Резервация { get; set; }
         public virtual DbSet<РезервацияТоваров> РезервацияТоваров { get; set; }
         public virtual DbSet<Сезонность> Сезонность { get; set; }
+        public virtual DbSet<СерийныеНомера> СерийныеНомера { get; set; }
         public virtual DbSet<Склад> Склад { get; set; }
         public virtual DbSet<Сотрудник> Сотрудник { get; set; }
         public virtual DbSet<СотрудникПользователь> СотрудникПользователь { get; set; }
