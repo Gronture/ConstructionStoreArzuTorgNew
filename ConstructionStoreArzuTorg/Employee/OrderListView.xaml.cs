@@ -251,11 +251,9 @@ namespace ConstructionStoreArzuTorg.Employee
 
 
 
-                //var secondObject = db.ЗаказанныеТовары.Where(x => x.ID == )
                 var needObject = db.Заказ.Where(x => x.ID_Заказа == selectedItem.ID_Заказа).FirstOrDefault();
                 var client = db.Клиент.Where(x => x.ID_Клиента == needObject.ID_Клиента).FirstOrDefault();
                 var worker = db.Сотрудник.Where(x => x.ID_Сотрудника == needObject.ID_Сотрудника).FirstOrDefault();
-               // var tovar = db.Товар.Where(x => x.ID_Товара == needObject.) 
 
 
                 var needCount = uniqueElements + 1;
@@ -278,17 +276,13 @@ namespace ConstructionStoreArzuTorg.Employee
                 wordTable.Cell(1, 1).Range.Text = "Наименование товара";
                 wordTable.Cell(1, 2).Range.Text = "Категория";
                 wordTable.Cell(1, 3).Range.Text = "Количество";
-                //wordTable.Cell(1, 4).Range.Text = "Стоимость";
-                //wordTable.Cell(1, 5).Range.Text = "Стоимость без НДС";
-                //wordTable.Cell(1, 6).Range.Text = "НДС";
-                //wordTable.Cell(1, 7).Range.Text = "Стоимость с НДС";
-
+              
 
 
 
                 decimal nds = needObject.Сумма * 20 / 120;
                 decimal sumNoNDS = needObject.Сумма - nds;
-                //decimal cena = sumNoNDS / joinedDataProduct.Count;
+               
 
 
                 for (int i = 0; i < joinedDataProduct.Count; i++)
@@ -296,10 +290,7 @@ namespace ConstructionStoreArzuTorg.Employee
                     wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
                     wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].НазваниеКатегории;
                     wordTable.Cell(i + 2, 3).Range.Text = joinedDataProduct[i].Count.ToString();
-                    //wordTable.Cell(i + 2, 4).Range.Text = joinedDataProduct[i].Стоимость.ToString();
-                    //wordTable.Cell(i + 2, 5).Range.Text = (joinedDataProduct[i].Стоимость * needObject.Сумма).ToString();
-                    //wordTable.Cell(i + 2, 6).Range.Text = joinedDataProduct[i].Стоимость.ToString();
-                    //wordTable.Cell(i + 2, 7).Range.Text = joinedDataProduct[i].Стоимость.ToString();
+                   
                 }
 
                 Random random = new Random();
@@ -398,7 +389,9 @@ namespace ConstructionStoreArzuTorg.Employee
                       Сезонность = x.Param.Название_сезона,
                       Ord = x.Ord.Заказ,
                       Count = x.Ord.Количество,
-                      ID = x.Ord.ID     
+                      ID = x.Ord.ID,
+                      Стоимость = x.Tovar.Стоимость,
+                      SumToReceipt = x.Tovar.Стоимость * x.Ord.Количество
                   }).ToList();
 
             }
@@ -476,7 +469,7 @@ namespace ConstructionStoreArzuTorg.Employee
 
 
                 var wordTable = wordDocument.Tables.Add(wordRange,
-                    needCount, 3);
+                    needCount, 4);
                 wordTable.Borders.Enable = 0;
 
 
@@ -487,8 +480,10 @@ namespace ConstructionStoreArzuTorg.Employee
 
                 wordTable.Cell(1, 1).Range.Text = "Наименование товара";
                 wordTable.Cell(1, 2).Range.Text = "Количество";
-                wordTable.Cell(1, 3).Range.Text = "Стоимость";
-                
+                wordTable.Cell(1, 3).Range.Text = "Стоимость за шт";
+                wordTable.Cell(1, 4).Range.Text = "Стоимость";
+
+
 
 
 
@@ -501,7 +496,8 @@ namespace ConstructionStoreArzuTorg.Employee
                 {
                     wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
                     wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].Count.ToString();
-                    wordTable.Cell(i + 2, 3).Range.Text = Math.Round(joinedDataProduct[i].SumToReceipt, 2).ToString();
+                    wordTable.Cell(i + 2, 3).Range.Text = Math.Round(joinedDataProduct[i].Стоимость, 2).ToString();
+                    wordTable.Cell(i + 2, 4).Range.Text = Math.Round(joinedDataProduct[i].SumToReceipt, 2).ToString();
                 }
 
                 Random random = new Random();
@@ -513,11 +509,7 @@ namespace ConstructionStoreArzuTorg.Employee
                 {
                     { "{Phone}", worker.Телефон},
                     { "{FIO}", worker.Фамилия + " " + worker.Имя + " " +worker.Отчество },
-                    //{ "{Addres}", client.Адрес },
-                    //{ "{Sum}", Math.Round(needObject.Сумма,2).ToString() },
-                    //{ "{SumNDS}", Math.Round(nds,2).ToString() },
-                    //{ "{SumNoNDS}", Math.Round(sumNoNDS, 2).ToString() },
-
+                    { "{Sum}", Math.Round(needObject.Сумма,2).ToString() },
                     { "{ID}",  random.Next(1000000, 9999999) + needObject.ID_Заказа.ToString() }
                 };
 

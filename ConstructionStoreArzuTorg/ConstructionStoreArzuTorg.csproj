@@ -487,6 +487,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="DeliverReport.docx" />
+    <None Include="DogovorWithProvider.docx" />
     <None Include="HelpConstructionStore.chm" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

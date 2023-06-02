@@ -61,7 +61,7 @@ namespace ConstructionStoreArzuTorg.Edit
                 if (needObject != null)
                 {
                     needObject.Наименование = NameTextBox.Text;
-                    needObject.Расчётный_счёт = int.Parse(RSTextBox.Text);
+                    needObject.Расчётный_счёт = RSTextBox.Text;
                     needObject.Учётный_номер_плательщика = int.Parse(NumPlatTextBox.Text);
                     needObject.Название_банка = NameBankTextBox.Text;
                     needObject.Код_банка = CodeBankTextBox.Text;
