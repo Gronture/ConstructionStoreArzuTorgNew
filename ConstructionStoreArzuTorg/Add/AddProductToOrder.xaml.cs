@@ -4,6 +4,7 @@ using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -235,7 +236,8 @@ namespace ConstructionStoreArzuTorg.Add
                       Сезонность = x.Param.Название_сезона,
                       Ord = x.Ord.Заказ,
                       Count = x.Ord.Количество,
-                      ID = x.Ord.ID
+                      ID = x.Ord.ID,
+                      Гарантия = x.Tovar.Гарантия
                   }).ToList();
 
             }
@@ -300,11 +302,12 @@ namespace ConstructionStoreArzuTorg.Add
                 wordTable.Cell(1, 2).Range.Text = "Гарантия";
 
 
-
+                DateTime date = DateTime.Now;
+                DateTime newDate = date.AddYears(1);
                 for (int i = 0; i < joinedDataProduct.Count; i++)
                 {
                     wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
-                    wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].Гарантия;
+                    wordTable.Cell(i + 2, 2).Range.Text = newDate.ToString();
 
                 }
 

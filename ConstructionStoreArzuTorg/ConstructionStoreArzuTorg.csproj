@@ -486,6 +486,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="addDogovorPostavki.doc" />
     <None Include="DeliverReport.docx" />
     <None Include="DogovorWithProvider.docx" />
     <None Include="HelpConstructionStore.chm" />
