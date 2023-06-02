@@ -425,5 +425,125 @@ namespace ConstructionStoreArzuTorg.Employee
                 Close();
             }
         }
+
+        private void ReceiptButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = orderGrid.SelectedItem as OrderUpd;
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+
+
+                var joinedDataProduct = GetProductUpds().Where(x => x.Ord == selectedItem.ID_Заказа).ToList();
+                var tovars = db.Товар.ToList();
+                var result = joinedDataProduct.GroupBy(t => t).GroupBy(t => t.Count()).ToArray();
+                var uniqueElements = result[0].Count();
+
+
+                Microsoft.Office.Interop.Word._Application wordApplication = new Microsoft.Office.Interop.Word.Application();
+                Microsoft.Office.Interop.Word._Document wordDocument = null;
+                wordApplication.Visible = true;
+
+                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg-master\ConstructionStoreArzuTorg\receipt.docx";
+
+                try
+                {
+                    wordDocument = wordApplication.Documents.Add(templatePathObj);
+                }
+                catch (Exception exception)
+                {
+                    if (wordDocument != null)
+                    {
+                        wordDocument.Close(false);
+                        wordDocument = null;
+                    }
+                    wordApplication.Quit();
+                    wordApplication = null;
+                    throw;
+                }
+
+
+
+                var needObject = db.Заказ.Where(x => x.ID_Заказа == selectedItem.ID_Заказа).FirstOrDefault();
+                var client = db.Клиент.Where(x => x.ID_Клиента == needObject.ID_Клиента).FirstOrDefault();
+                var worker = db.Сотрудник.Where(x => x.ID_Сотрудника == needObject.ID_Сотрудника).FirstOrDefault();
+
+
+                var needCount = uniqueElements + 1;
+
+                wordApplication.Selection.Find.Execute("{Table}");
+                Microsoft.Office.Interop.Word.Range wordRange = wordApplication.Selection.Range;
+
+
+
+                var wordTable = wordDocument.Tables.Add(wordRange,
+                    needCount, 3);
+                wordTable.Borders.Enable = 0;
+
+
+                
+                wordTable.Range.Font.Name = "Times New Roman";
+                wordTable.Range.Font.Size = 12;
+
+
+                wordTable.Cell(1, 1).Range.Text = "Наименование товара";
+                wordTable.Cell(1, 2).Range.Text = "Количество";
+                wordTable.Cell(1, 3).Range.Text = "Стоимость";
+                
+
+
+
+
+                decimal nds = needObject.Сумма * 20 / 120;
+                decimal sumNoNDS = needObject.Сумма - nds;
+
+
+                for (int i = 0; i < joinedDataProduct.Count; i++)
+                {
+                    wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
+                    wordTable.Cell(i + 2, 2).Range.Text = joinedDataProduct[i].Count.ToString();
+                    wordTable.Cell(i + 2, 3).Range.Text = Math.Round(joinedDataProduct[i].SumToReceipt, 2).ToString();
+                }
+
+                Random random = new Random();
+
+
+
+
+                var items = new Dictionary<string, string>
+                {
+                    { "{Phone}", worker.Телефон},
+                    { "{FIO}", worker.Фамилия + " " + worker.Имя + " " +worker.Отчество },
+                    //{ "{Addres}", client.Адрес },
+                    //{ "{Sum}", Math.Round(needObject.Сумма,2).ToString() },
+                    //{ "{SumNDS}", Math.Round(nds,2).ToString() },
+                    //{ "{SumNoNDS}", Math.Round(sumNoNDS, 2).ToString() },
+
+                    { "{ID}",  random.Next(1000000, 9999999) + needObject.ID_Заказа.ToString() }
+                };
+
+
+                foreach (var item in items)
+                {
+                    Microsoft.Office.Interop.Word.Find find = wordApplication.Selection.Find;
+                    find.Text = item.Key;
+                    find.Replacement.Text = item.Value;
+
+                    object wrap = Microsoft.Office.Interop.Word.WdFindWrap.wdFindContinue;
+                    object replace = Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll;
+
+                    find.Execute(
+                        FindText: Type.Missing,
+                        MatchCase: false,
+                        MatchWholeWord: false,
+                        MatchWildcards: false,
+                        MatchSoundsLike: Type.Missing,
+                        MatchAllWordForms: false,
+                        Forward: true,
+                        Wrap: wrap,
+                        Format: false,
+                        ReplaceWith: Type.Missing, Replace: replace);
+                }
+            }
+        }
     }
 }

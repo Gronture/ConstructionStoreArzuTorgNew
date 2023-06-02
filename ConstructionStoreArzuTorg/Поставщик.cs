@@ -22,7 +22,7 @@ namespace ConstructionStoreArzuTorg
     
         public int ID_Поставщика { get; set; }
         public string Наименование { get; set; }
-        public int Расчётный_счёт { get; set; }
+        public string Расчётный_счёт { get; set; }
         public int Учётный_номер_плательщика { get; set; }
         public string Название_банка { get; set; }
         public string Код_банка { get; set; }

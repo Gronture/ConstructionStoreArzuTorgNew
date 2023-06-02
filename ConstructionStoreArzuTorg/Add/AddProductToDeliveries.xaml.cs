@@ -190,78 +190,9 @@ namespace ConstructionStoreArzuTorg.Add
         private void AddDeliverButton_Click(object sender, RoutedEventArgs e)
         {
 
-            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
-            {
-                var items = db.ПоставленныеТовары.Where(x => x.Поставка == _поставки.ID).ToList();
-                var list = new List<СерийныеНомера>();
-
-                foreach (var i in items)
-                {
-                    var product = db.Товар.FirstOrDefault(x => x.ID_Товара == i.Товар);
-                    var category = db.Категория.FirstOrDefault(x => x.ID_Категории == product.ID_Категории);
-
-                    if (category.Название == "Техника")
-                    {
-                        
-                        var generatedSerialNumbers = new HashSet<string>();
-
-                        for (int j = 0; j < i.Количество; j++)
-                        {
-                            var itemToAdd = new СерийныеНомера();
-                            itemToAdd.Товар = i.Товар;
-
-                            string serialNumber;
-                            do
-                            {
-                                serialNumber = GenerateSerialNumber();
-                            } while (generatedSerialNumbers.Contains(serialNumber));
-
-                            itemToAdd.Серийный_Номер = serialNumber;
-                            generatedSerialNumbers.Add(serialNumber);
-
-                            list.Add(itemToAdd);
-                        }
-                    }
-                }
-
-                db.СерийныеНомера.AddRange(list);
-                db.SaveChanges();
-            }
-
-
-
             new DeliveriesListView().Show();
             Close();
         }
-
-        private string GenerateSerialNumber()
-        {
-            // Define the characters that can be used in the serial number
-            string allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-            // Set the desired length of the serial number
-            int length = 10;
-
-            // Create a Random object to generate random indices for the allowedChars string
-            Random random = new Random();
-
-            // Create a StringBuilder to store the generated serial number
-            StringBuilder sb = new StringBuilder(length);
-
-            // Generate random characters and append them to the StringBuilder
-            for (int i = 0; i < length; i++)
-            {
-                int randomIndex = random.Next(allowedChars.Length);
-                sb.Append(allowedChars[randomIndex]);
-            }
-
-            // Return the generated serial number as a string
-            return sb.ToString();
-        }
-
-
-
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             using(ConstructionStoreEntities db = new ConstructionStoreEntities())

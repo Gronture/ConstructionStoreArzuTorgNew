@@ -267,9 +267,6 @@
     <Compile Include="Report\ReportMenu.xaml.cs">
       <DependentUpon>ReportMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ВозвратТовара.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -313,9 +310,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Сезонность.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="СерийныеНомера.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Склад.cs">
@@ -507,6 +501,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="OrderRerort.docx" />
+    <None Include="receipt.docx" />
+    <None Include="Талон.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище ConstructionstoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="ВозвратТовара">
           <Key>
             <PropertyRef Name="ID" />
@@ -112,7 +102,7 @@
           </Key>
           <Property Name="ID_Поставщика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Наименование" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Расчётный_счёт" Type="int" Nullable="false" />
+          <Property Name="Расчётный_счёт" Type="nvarchar" MaxLength="28" Nullable="false" />
           <Property Name="Учётный_номер_плательщика" Type="int" Nullable="false" />
           <Property Name="Название_банка" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Код_банка" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -154,14 +144,6 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Процент" Type="int" Nullable="false" />
           <Property Name="Название_сезона" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="СерийныеНомера">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Товар" Type="int" Nullable="false" />
-          <Property Name="Серийный Номер" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Склад">
           <Key>
@@ -495,7 +477,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище ConstructionstoreModelContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ВозвратТовара" EntityType="Self.ВозвратТовара" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Единицы_измерения" EntityType="Self.Единицы_измерения" Schema="dbo" store:Type="Tables" />
@@ -511,7 +492,6 @@
           <EntitySet Name="Резервация" EntityType="Self.Резервация" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="РезервацияТоваров" EntityType="Self.РезервацияТоваров" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сезонность" EntityType="Self.Сезонность" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="СерийныеНомера" EntityType="Self.СерийныеНомера" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Склад" EntityType="Self.Склад" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" Schema="dbo" store:Type="Tables" />
@@ -611,16 +591,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ConstructionstoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="ВозвратТовара">
           <Key>
             <PropertyRef Name="ID" />
@@ -738,7 +708,7 @@
           </Key>
           <Property Name="ID_Поставщика" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Наименование" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Расчётный_счёт" Type="Int32" Nullable="false" />
+          <Property Name="Расчётный_счёт" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Учётный_номер_плательщика" Type="Int32" Nullable="false" />
           <Property Name="Название_банка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Код_банка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -788,14 +758,6 @@
           <Property Name="Процент" Type="Int32" Nullable="false" />
           <Property Name="Название_сезона" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Товар" Relationship="Self.FK_Товар_Сезонность" FromRole="Сезонность" ToRole="Товар" />
-        </EntityType>
-        <EntityType Name="СерийныеНомера">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Товар" Type="Int32" Nullable="false" />
-          <Property Name="Серийный_Номер" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Склад">
           <Key>
@@ -1145,7 +1107,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ConstructionStoreEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="ВозвратТовара" EntityType="Self.ВозвратТовара" />
           <EntitySet Name="Должность" EntityType="Self.Должность" />
           <EntitySet Name="Единицы_измерения" EntityType="Self.Единицы_измерения" />
@@ -1161,7 +1122,6 @@
           <EntitySet Name="Резервация" EntityType="Self.Резервация" />
           <EntitySet Name="РезервацияТоваров" EntityType="Self.РезервацияТоваров" />
           <EntitySet Name="Сезонность" EntityType="Self.Сезонность" />
-          <EntitySet Name="СерийныеНомера" EntityType="Self.СерийныеНомера" />
           <EntitySet Name="Склад" EntityType="Self.Склад" />
           <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" />
           <EntitySet Name="СотрудникПользователь" EntityType="Self.СотрудникПользователь" />
@@ -1262,17 +1222,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ConstructionstoreModelContainer" CdmEntityContainer="ConstructionStoreEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ConstructionstoreModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ВозвратТовара">
             <EntityTypeMapping TypeName="ConstructionstoreModel.ВозвратТовара">
               <MappingFragment StoreEntitySet="ВозвратТовара">
@@ -1425,15 +1374,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Процент" ColumnName="Процент" />
                 <ScalarProperty Name="Название_сезона" ColumnName="Название_сезона" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="СерийныеНомера">
-            <EntityTypeMapping TypeName="ConstructionstoreModel.СерийныеНомера">
-              <MappingFragment StoreEntitySet="СерийныеНомера">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Товар" ColumnName="Товар" />
-                <ScalarProperty Name="Серийный_Номер" ColumnName="Серийный Номер" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
