@@ -205,9 +205,156 @@ namespace ConstructionStoreArzuTorg.Add
                 Close();
             }
         }
+        public List<ProductUpd> GetProductUpds()
+        {
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+                return db.Товар
+                  .Join(db.Единицы_измерения,
+                      tovar => tovar.ID_Единицы_измерения,
+                      pt => pt.ID_Измерений,
+                      (tovar, pt) => new { Tovar = tovar, PT = pt })
+                  .Join(db.РазмерыТовара,
+                      joinResult => joinResult.Tovar.ID_Размеров,
+                      param => param.ID_Размеров,
+                      (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
+                   .Join(db.Категория,
+                      joinResult => joinResult.Tovar.ID_Категории,
+                      param => param.ID_Категории,
+                      (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
+                   .Join(db.Сезонность,
+                      joinResult => joinResult.Tovar.Сезонность,
+                      param => param.ID,
+                      (joinResult, param) => new { Tovar = joinResult.Tovar, PT = joinResult.PT, Param = param })
+                     .Join(db.РезервацияТоваров,
+                      joinResult => joinResult.Tovar.ID_Товара,
+                      rezerv => rezerv.Товар,
+                      (joinResult, rezerv) => new { Tovar = joinResult.Tovar, Param = joinResult.Param, Rezerv = rezerv, PT = joinResult.PT })
+                  .Select(x => new ProductUpd
+                  {
+                      ID_Товара = x.Tovar.ID_Товара,
+                      Название = x.Tovar.Название,
+                      НазваниеКатегории = x.Tovar.Категория.Название,
+                      Размеры = x.Tovar.РазмерыТовара.Размер,
+                      ЕдиницаИзмерения = x.Tovar.Единицы_измерения.Название,
+                      Сезонность = x.Param.Название_сезона,
+                      Rezerv = x.Rezerv.Резервация.ID,
+                      Count = x.Rezerv.Количество,
+                      ID = x.Rezerv.ID,
+                      Гарантия = x.Tovar.Гарантия
+                  }).ToList();
 
+            }
+        }
         private void AddRezervButton_Click(object sender, RoutedEventArgs e)
         {
+            using (ConstructionStoreEntities db = new ConstructionStoreEntities())
+            {
+
+
+                var joinedDataProduct = GetProductUpds().Where(x => x.Rezerv == _резервация.ID).ToList();
+                var tovars = db.Товар.ToList();
+                var result = joinedDataProduct.GroupBy(t => t).GroupBy(t => t.Count()).ToArray();
+                var uniqueElements = result[0].Count();
+
+
+                Microsoft.Office.Interop.Word._Application wordApplication = new Microsoft.Office.Interop.Word.Application();
+                Microsoft.Office.Interop.Word._Document wordDocument = null;
+                wordApplication.Visible = true;
+
+                var templatePathObj = @"D:\Проекты\ConstructionStoreArzuTorg-master\ConstructionStoreArzuTorg\RezervReport.docx";
+
+                try
+                {
+                    wordDocument = wordApplication.Documents.Add(templatePathObj);
+                }
+                catch (Exception exception)
+                {
+                    if (wordDocument != null)
+                    {
+                        wordDocument.Close(false);
+                        wordDocument = null;
+                    }
+                    wordApplication.Quit();
+                    wordApplication = null;
+                    throw;
+                }
+
+
+
+
+
+                var needCount = uniqueElements + 1;
+
+                wordApplication.Selection.Find.Execute("{Table}");
+                Microsoft.Office.Interop.Word.Range wordRange = wordApplication.Selection.Range;
+
+
+
+                var wordTable = wordDocument.Tables.Add(wordRange,
+                    needCount, 2);
+
+
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleDouble;
+                wordTable.Range.Font.Name = "Times New Roman";
+                wordTable.Range.Font.Size = 12;
+
+
+                wordTable.Cell(1, 1).Range.Text = "Наименование товара";
+                wordTable.Cell(1, 2).Range.Text = "Гарантия";
+
+
+                DateTime date = DateTime.Now;
+                DateTime newDate = date.AddYears(1);
+                for (int i = 0; i < joinedDataProduct.Count; i++)
+                {
+                    wordTable.Cell(i + 2, 1).Range.Text = joinedDataProduct[i].Название;
+                    wordTable.Cell(i + 2, 2).Range.Text = newDate.ToString();
+
+                }
+
+                Random random = new Random();
+
+
+
+
+                var items = new Dictionary<string, string>
+                {
+                    { "{Date}", DateTime.Now.ToShortDateString()  },
+                    { "{Number}",  random.Next(1000000, 9999999).ToString() }
+                };
+
+
+                foreach (var item in items)
+                {
+                    Microsoft.Office.Interop.Word.Find find = wordApplication.Selection.Find;
+                    find.Text = item.Key;
+                    find.Replacement.Text = item.Value;
+
+                    object wrap = Microsoft.Office.Interop.Word.WdFindWrap.wdFindContinue;
+                    object replace = Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll;
+
+                    find.Execute(
+                        FindText: Type.Missing,
+                        MatchCase: false,
+                        MatchWholeWord: false,
+                        MatchWildcards: false,
+                        MatchSoundsLike: Type.Missing,
+                        MatchAllWordForms: false,
+                        Forward: true,
+                        Wrap: wrap,
+                        Format: false,
+                        ReplaceWith: Type.Missing, Replace: replace);
+                }
+            }
+
+
+
+
+
+
+
             new RezervListWindow().Show();
             Close();
         }

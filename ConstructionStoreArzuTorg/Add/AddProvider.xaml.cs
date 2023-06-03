@@ -91,8 +91,13 @@ namespace ConstructionStoreArzuTorg.Add
                 {
                     { "{NameProvider}",  поставщик.Наименование },
                     { "{PositionProvider}",  поставщик.Должность },
-                    { "{PositionProvider}",  поставщик.ID_Поставщика.ToString() },
+                    { "{ID}",  поставщик.ID_Поставщика.ToString() },
                     { "{Address}",  поставщик.Адрес },
+                    { "{FIO}",  поставщик.ФИО },
+                    { "{RS}",  поставщик.Расчётный_счёт },
+                    { "{Bank}",  поставщик.Название_банка },
+                    { "{UNP}",  поставщик.Учётный_номер_плательщика.ToString() },
+
                 };
 
 

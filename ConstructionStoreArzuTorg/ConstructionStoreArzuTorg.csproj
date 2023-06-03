@@ -504,6 +504,7 @@
     </None>
     <None Include="OrderRerort.docx" />
     <None Include="receipt.docx" />
+    <None Include="RezervReport.docx" />
     <None Include="Талон.docx" />
   </ItemGroup>
   <ItemGroup>
